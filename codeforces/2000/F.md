@@ -19,7 +19,7 @@ select minimum square 去 achieve $k$ 同 select maximum unchosen squares 去 ac
 - achieve 0 好簡單，乜都唔 pick 就得
 - 要攞 $p + 1$ point，揀攞 $p$ points 之後短啲嘅 row or column，然後 update 個 rectangle
 
-想象一吓，一開始個 rectangle 仲未係正方形嘅時候，佢會通過擺細啲嗰邊去縮長嗰一邊，直到佢變成一個正方形，然後就會梅花間竹咁 row col row col 咁儘量 keep 住佢係方形。
+想象一吓，一開始個 rectangle 仲未係正方形嘅時候，佢會通過攞細啲嗰邊去縮長嗰一邊，直到佢變成一個正方形，然後就會梅花間竹咁 row col row col 咁儘量 keep 住佢係方形。
 
 > 有一個 special case，就係無論如何你都攞唔到 exactly $m + n - 1$ points。當你攞剩低一個 square 嘅時候，一嘢你就會同時攞咗一個 row 同一個 col，呢個係冇所謂嘅，題目要求係 at least $k$ points。
 

@@ -21,7 +21,7 @@ For even length array，sorting 係 optimal。
 反證法：如果最細 $a$ 唔係 pair with 第二細 $b$，個兩 pairs 會係 $(a,c)$ 同埋 $(b,d)$
 
 $(a,c)$ 要用 $c-a$ 次先整到 $(c,c)$
-$(b,d)$ 要用 $d-b$ 次先整到 $(b,d)$
+$(b,d)$ 要用 $d-b$ 次先整到 $(d,d)$
 
 所以我想證 $(c-a)+(d-b)\ge(b-a)+|c-d|$，後面用 absolute 係因為我唔知 $c$ 大定 $d$ 大。
 

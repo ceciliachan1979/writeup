@@ -30,8 +30,9 @@ a = [12, 4, -4, 1], 呢個時候，last_end 係 -1, perfix_sum = 12 + 4 - 4,    
                     即係代表，中間嘅加埋係 `0`, 所以我地就揾到一個啱嘅 segment
 ```
 
-最後 reset hash map 嘅時候要用 `i`，
-因為我地嘅 segment 右邊嘅 index 唔可以細過左邊嘅 index，亦都唔可以 overlap，所以一定要 set 做 `i`
+最後, 我地 reset hash map 嘅時候要用 `i`，
+因為我地嘅 segment 右邊嘅 index 唔可以細過左邊嘅 index，亦都唔可以 overlap，
+所以一定要 set 做 `i`
 
 ```cpp
 #pragma GCC optimize("Ofast,unroll-loops")

@@ -7,7 +7,7 @@
 
 打嗰陣諗起呢個解法：https://leetcode.com/submissions/detail/1430992439 ,所以就試下招，結果順利拎到 AC
 
-Key Idea: 如果 perfix sum 係個 Hash Map 入邊，而且個 index 冇過界，咁就代表揾到一個啱嘅 segment。
+Key Idea: 如果 prefix sum 係個 Hash Map 入邊，而且個 index 冇過界，咁就代表揾到一個啱嘅 segment。
 
 我地睇一個例子就會明：
 ```

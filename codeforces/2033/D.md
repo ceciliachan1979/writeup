@@ -27,7 +27,7 @@ a = [12, 4, -4, 1], 呢個時候，last_end 係 -1, perfix_sum = 12 + 4, cache[p
 a = [12, 4, -4, 1], 呢個時候，last_end 係 -1, perfix_sum = 12 + 4 - 4,                         |
 　　　　　　　　　　　　呢個 moment 就好重要，你會見到 perfix_sum 變返做 12，                         |
                     咁即係 cache[perfix_sum] = 0 >--------------------------------------------^ 
-                    即係代表，中間嘅加埋係 `0`, 所以我地就揾到一個 啱嘅 segment
+                    即係代表，中間嘅加埋係 `0`, 所以我地就揾到一個啱嘅 segment
 ```
 
 最後 reset hash map 嘅時候要用 `i`，因為我地嘅 segment 唔可以由大至細，亦都唔可以 overlap，所以一定要 set 做 `i`

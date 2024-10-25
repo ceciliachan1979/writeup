@@ -5,7 +5,7 @@
 呢題嘅實作靈感來源係嚟自 LeetCode 嘅 [Two Sums](https://leetcode.com/problems/two-sum/description/)，
 雖然係 Easy, 但係玩法有好多：Bruce Force， Linear Search，Binary Search 同用 Hash Table。
 
-打嗰陣諗起呢個解法：https://leetcode.com/submissions/detail/1430992439/，所以就試下招，結果順利拎到 AC
+打嗰陣諗起呢個解法：https://leetcode.com/submissions/detail/1430992439 ,所以就試下招，結果順利拎到 AC
 
 Key Idea: 如果 perfix sum 係個 Hash Map 入邊，而且個 index 冇過界，咁就代表揾到一個啱嘅 segment。
 

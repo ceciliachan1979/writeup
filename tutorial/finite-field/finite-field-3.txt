@@ -1,0 +1,68 @@
+上集講完整大 prime finite field，咁係咪只有 prime 先有 finite field 呢？唔係。上一集我證明左既係個 mapping 既 target 一定有 p 個 element，而個 mapping 唔一定要指向所有 elements。
+
+呢隻怪獸都係一個 finite field，有 8 個 elements
+
+加數表
+0 1 2 3 4 5 6 7
+1 0 3 2 5 4 7 6
+2 3 0 1 6 7 4 5
+3 2 1 0 7 6 5 4
+4 5 6 7 0 1 2 3
+5 4 7 6 1 0 3 2
+6 7 4 5 2 3 0 1
+7 6 5 4 3 2 1 0
+
+乘數表
+0 0 0 0 0 0 0 0
+0 1 2 3 4 5 6 7
+0 2 4 6 3 1 7 5
+0 3 6 5 7 4 1 2
+0 4 3 7 6 2 5 1
+0 5 1 4 2 7 3 6
+0 6 7 1 5 3 2 4
+0 7 5 2 1 6 4 3
+
+叫得佢做怪獸，佢梗係怪啦！除左 1 + 1 = 0 之外，仲有 2 + 2, 3 + 3 全部都係 0！乘數更加係毫無章法可言，亂到阿媽都唔認得！但係你吹咩？佢就係過晒個 11 條 rules。
+
+呢 d 咁既怪獸叫做 Galois field 。呢 d 號碼梗係唔係我作出黎，係有數得計既。
+
+如果 k 係一個 field，咁我地用 k[x] 代表用 k 做 coefficients 既所有 polynomial。正如係Q[x]裏面 x^2 + 1 = 0 係 solve 唔到。k[x] 既 polynomial 都唔一定 solve 得到。例如係 0 1 finite field 裏面，x^2 + x + 1 = 0 就 solve 唔到。準確 d 黎講，唔係 solve 唔到，係答案唔係個 field 度。例如 x^2 + 1 = 0 可以話個答案係 complex number i，但係 i 唔係 Q 裏面就唔計。
+
+degree < 4 既話，solve唔到就代表 factor 唔到。degree >= 4 就有呢隻怪獸 (x^2 + 1)^2 。雖然都係 solve 唔到，但係 factor 到。 factor 唔到既 polynomial我地叫做 irreducible 。 irreducible polynomial 係做怪獸 Galois field 既原料。
+
+正如 x^2 + 1 係 Q[x] solve 唔到可以屈個 i 俾佢一樣，我地一樣可以屈答案俾 finite field polynomial。因為 x^2 + x + 1 係 solve 唔到，但係我地知道呢條係 degree 2 既 polynomial，有兩個 roots，所以可以屈個答案係 f 同埋 g。f + g 係 sum of roots，所以 f + g = -1 = 1 (mod 2)。所以只要屈一個 f 就夠。呢個方法可以撐大個 field。下面用更方便既方法去做同樣既事。
+
+polynomial 同數字一樣，可以加同埋乘，所以 Galois field 裏面 d element 其實係 polynomial。唯一既問題就係 polynomial 冇 multiplicative inverse。同 prime field 解決既方法一樣，就係 mod 一條 irreducible polynomial p(x)。
+
+用同樣既 extended euclidean algorithm，任何一條 polynomial a(x) 都可以寫成 a(x)m(x) + p(x)n(x) = gcd(a(x), p(x))，但係 p(x) 係 irreducible，所以 gcd(a(x), p(x)) 只能係1，咁就屈到個 a(x) 既 multiplicative inverse 係 m(x) 。
+
+呢個 field 我地用 k[x]/(p(x)) 表達。
+
+假設p(x) 既 degree 係 n ，因為每一條 polynomial 最終都要 mod p，所以個 degree 最多係 n - 1。一個 degree n - 1 既 polynomial 有 n 個 coefficients，所以如果原本個 finite field 係有 |k| 個 elements，呢個 polynomial finite field 就有 |k|^n 咁多個 elements。
+
+重點來了。x 作為一條 polynomial 當然係  k[x]/(p(x)) 裏面。而家 x^2 + x + 1 = 0 (mod p(x))，咁就夾硬 solve 左原本條 polynomial了 。其實同屈 i 冇分別。
+
+上面個表係0 1 field 上面 mod x^3 + x + 1 做出黎既 finite field 。裏面既 polynomial degree 最多係 2，所以有 3 個 coefficients，每個 coefficient 唔係 0 就係 1，正好可以用 3 bits 表達。
+
+淨番落黎呢兩句係 optional，明就明，唔明就算，知道結果就得。
+
+(*) 係任何 field 裏面，任何 polynomial 都可以通過屈 i 方法撐大個 field 去 solve 晒所有 roots 。 證呢個用 MI 個 polynomial 既 degree 就得。
+
+(*) 係任何 field 裏面，都存有一個 algebraic closure ，可以 solve 晒所有 polynomials 既所有 root，但 finite field 既 algebraic closure 係 infinite 咁大。證呢個需要 Zorn's lemma 。
+
+假設有一個 field k size 係 p，q = p^n，留意 differentiate (x^q - x) = qx^(q-1) - 1 = -1 mod p，所以 x^q - x 有 q 個 distinct roots，用屈 i 方法可以證明
+
+(*) 對於所有正整數 n >= 1 都會有 p^n size 既 finite field 存在。
+
+用 map 1 方法可以證明到每個 finite field 都會有一個 prime size 既 subfield。大 field 可以理解成一個 finite dimensional vector space on 細 field。
+
+(*) 所以一個 finite field 既 size 一定係 prime power。
+
+呢集就講到呢度，今集主要解釋晒所有有關 finite field 既 size 既問題。
+
+練習︰
+
+整一個 size = 7 既 finite field，檢查晒11條rules。
+整一個 size = 9 既 finite field，檢查晒11條rules。提示 x^2 + 1 = 0 係 F3 係 irreducible
+
+提示,唔好用手計。loop 9 x 9 x 9 次人肉唔係辦法。

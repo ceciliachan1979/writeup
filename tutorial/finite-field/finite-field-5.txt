@@ -1,0 +1,71 @@
+上集講完 Lagrange's theorem ，今集我地研究圈圈 (cyclic group)。
+
+有一種 group 叫做 cyclic group 。 佢既特別之處就係所有 elements 都係一個數既 power 。
+
+1, a, a^2, a^3, …
+
+我地又只關心 finite cyclic group ，所以走落去最終又會重覆，重覆個個一定係 1 ，同第二集個證法一樣，唔寫了。所以你可以想像 d power 係一個圈度轉，所以叫佢 cyclic group
+
+1 -> a -> a^2 -> ... -+
+^                     |
+|---------------------+
+
+用番上一集個F7 例子，個圈就係
+
+1 -> 3 -> 2 -> 6 -> 4 -> 5
+^                        |
+|------------------------+
+
+由於 2 = 3 x 3 (mod 7)，其實 x 2 就係行兩步，所以出到呢個圈
+
+1 -> 2 -> 4
+^         |
+|---------+
+
+一個 6 個 elements 既圈兩步兩步咁行，自然行唔晒個圈。單數位係一定去唔到。
+
+如果行既步數同個圈既大小有 common factor ，你就會行唔晒。行1步同5步得，行0,2,3,4,6步都唔得。行6步或以上係等同於行 mod 6，冇意義。
+
+由 1 到 n 裏面有幾多個數同 n 既 gcd 係 1 既數係叫做 Euler phi function 。 呢個例子 phi(6) = 2
+
+1 同埋 5 我地叫做 132645 呢個圈既 generators 。所以上面我地搵出黎個個規律係
+
+「一個 size n 既圈有 phi(n) 咁多個 generators 。」
+
+咁你拎住每一個 element p 去轉圈圈，最終都會轉到一個圈出黎。 呢個 element p 就係呢個圈 C 既 generator，所以
+
+「sum(over all C) number of generators of C = n」
+
+就 cyclic group 黎講，每一個 positive factor of n (包括n自己) 都有一個 C，所以
+
+「sum(over all d as a factor of n) phi(d) = n」
+
+cyclic group 仲有一個特性，就係每一個 element 都可以做到 x^n = 1 ，行 k 步 n 次其實係等同於行 n 步 k 次，但係由 1 開始行 n 步，行幾多次都係 1 架啦，所以 x 既 n 次係 1。呢條就係 Fermat's theorem 。Quadratic residue 個份用左黎證 Euler's criterion 。
+
+而家我地番去 finite field ，拎住每一個 elements 去 generate 一個 cyclic subgroup 。
+
+sum(over all C) number of generators of C = n
+
+而家我地未知 finite field 個 group 係咪 cyclic ，所以唔知有幾多個 cyclic subgroup ，但係我地知道 d cyclic subgroup 既 size 一定係一個 factor of n，咁係因為 Lagrange's theorem。
+
+如果對於一個 factor d 有兩個唔同既 cyclic subgroup S 同 T，咁，咁 S union T 就會有超過 d 個 elements 。咁係唔得，因為每一個 elements 都係x^d - 1 既 root，但係 x^d - 1 只可以有 d 個 roots 。
+
+所以左手邊可以寫成 sum(over all d as a factor of n, where there exists a cyclic subgroup of size d)  phi(d)
+
+呢件野好明顯細個 sum(over all d as a factor of n) phi(d)，但係呢件野又係 n 喎。
+
+成條野寫晒出黎就可以夾死
+
+n = sum(over all d as a factor of n) phi(d) >= sum(over all d as a factor of n, where there exists a cyclic subgroup of size d)  phi(d) = sum(over all C) number of generators of C = n
+
+所以中間個個 >= 只能係 = 。重點係，一定有一個 size = n 既 cyclic subgroup。咁就證明左成個 finite field 既 multiplicative subgroup 一定係 cyclic。
+
+既然係 cyclic ，就一定有 generator ，個 generator 就係個 primitive root。
+
+QED，點都要寫一次！
+
+成個證明既玩法係數手指，雖然我地證明左 primitive root 一定係 exists，而且有 phi(d) 咁多個，但係 given 個 finite field，你係唔知個 primitive roots 係乜。呢個係我知既 https://cp-algorithms.com/algebra/primitive-root.html algorithm，但係只能搵 prime field 。 個 algorithm 我係冇研究過，所以唔知點 work 。裏面有個叫做 generalized Riemann's hypothesis ，呢件野個簡單版都值100萬美金，證到你就可以攞 Field's medal 了，我做唔到﹐哈哈。
+
+練習：
+
+搵一個第三集個怪獸 field 既 primitive root。提示︰唔好夾硬黎，呢個group應該有幾多個 primitive roots 先？

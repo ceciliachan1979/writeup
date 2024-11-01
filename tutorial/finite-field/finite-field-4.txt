@@ -1,0 +1,103 @@
+呢一集我地唔理加數，淨係睇乘數，係F7裏面，睇下 d 既次方會係點
+
+2 既次方係 
+
+2^0 = 1
+2^1 = 2, 
+2^2 = 4, 
+2^3 = 1, 
+
+出到 1 就收皮了，因為會不停咁循環。
+
+3^0 = 1
+3^1 = 3
+3^2 = 2
+3^3 = 6
+3^4 = 4
+3^5 = 5
+3^6 = 1
+
+出到 1 又收皮了，因為又會不停咁循環。
+
+有趣既地方係 3 既次方包含晒所有唔係 0 既數。一個咁樣既數我地叫佢做 primitive root。
+
+「一個 primitive root 既次方，包含晒成個 field 裏面所有唔係 0 既 elements」
+
+所以 3 係一個 primitive root，而 2 唔係。
+
+所以之後兩集既目的，係解釋 primitive root 既存在同 primitive root 既數量。
+
+溫番第一集，第一集我地定義左 finite field 既 11 條 rules︰
+
+(1) 任何兩個數 a,b a + b 都係番個 field 裏面。
+(2) 存在一個 0 ，a + 0 = a
+(3) 任何三個數 a,b,c (a + b) + c = a + (b + c)
+(4) 任何一個數 a 都有一個對應既 -a 令到 a + (-a) = 0
+(5) 任何二個數 a,b，a + b = b + a
+
+(6) 任何兩個數 a,b a x b 都係番個 field 裏面。
+(7) 存在一個 1 ，對於非零既 a，a x 1 = a 
+(8) 任何三個數 a,b,c (a x b) x c = a x (b x c)
+(9) 任何一個非零既數 a 都有一個對應既 a^(-1) 令到 a x a^(-1) = 1
+(10) 任何二個數 a,b，a x b = b x a
+
+(11) 任何三個數 a,b,c (a + b) x c = a x b + b x c
+
+而家我地只關心乘數，所以淨係睇 rule (6) 到 rule (10)。 其實我連 rule (10) 都唔係好想理。
+
+凡係符合 rule (6) 到 rule (9) 既野我地叫做 group 。如果連 rule (10) 都岩埋佢就叫做 Abelian group 。所以其實一個 field 既加數係一個 Abelian group ，非零既乘數又係一個 Abelian group 。
+
+減少 rules ， 唔睇某個 operation ，只關心某些事，其它唔關事既死開，其實係一種抽象化。所以呢一門學問叫做抽象代數。
+
+上集睇 fields ，我地睇點樣撐大個 field 黎 solve equation 。 今集睇 group ，我地睇點樣整細佢。我地只考慮 finite group 。
+
+一個 group 既一個 subset 如果仲係一個 group ，我地叫做 subgroup 。今集我地研究下 subgroup ，下一集你就會知點樣用 subgroup 屈到個 primitive root 出黎。
+
+通常我地用 G 表達一個 group ， H 就係佢既 subgroup 。一個 subgroup 可以將個 group 分成好多個同樣 size 既 disjoint coset 。 咁乜野係一個 coset 呢？
+
+假設 g 係一個 G 既 element，我地用 Hg 代表 所以可以寫成 h x g 既數，當然 h 係一個 H 既 element 啦 。 呢 d 咁樣既 Hg 我地就叫佢做 coset(嚴格黎講佢叫 right coset，左手版本 gH 係一樣冇分別) 。
+
+我地可以想像每一個 element g 都戴左一塊牌話俾我地知佢係邊個 coset 。我 claim 每個 g 只可以戴一塊。
+
+如果唔係，假設 g 又係 Ha，又係 Hb，考慮一個任意既 element p 係 Ha 裏面
+
+g = h_1 x a (咁係因為 g 係 Ha)
+  = h_2 x b (咁係因為 g 係 Hb)
+p = h_3 x a (咁係因為 p 係 Ha)
+  = h_3 x h_1^(-1) x h_1 a (屈 h_1^(-1) x h_1 一定係 1)
+  = h_3 x h_1^(-1) x h_2 b (用番第二行)
+  = h_4 x b (前面個d 全部都係 H 野，因為 H 係 group 所以 H 野可以寫成一個 h_4)
+
+咁就可以屈到 p 係 Hb 度。
+
+對於任意係 Ha 既野都會係 Hb 裏面，因為對稱，所有係 Hb 既野又都會係 Ha 裏面，咁 Ha 同 Hb 根本就係同一個 coset 。
+
+如果冇 element belongs to 兩個 cosets ，咁任何兩個 cosets 都唔會有 intersection，咁就證明左 disjoint。
+
+唔止咁，如果我地有兩個 cosets Hp 同 Hq，我可以整到一個朋友關係
+
+我地假設 p 同 q 係朋友，我地定義 m (in Hp) 既朋友係 n = m x p^(-1) x q 。
+
+因為所有係 Hp 既 element 都可以寫成 h_1 p ，咁 h_1 x p x p^(-1) x q = h_1 x q 就一定係 Hq 。
+
+任何係 Hp 既 element 都有一個朋友係 Hq 。
+
+任何係 Hq 既 element n 都有一個朋友係 Hp 喎，計法係 n x q^(-1) x p = m x p^(-1) x q x q^(-1) x p = m ，好明顯係 inverse 關係，朋友既朋友就係自己。
+
+所以 Hp 同 Hq 之間一個個朋友仔拉手仔，即係話 Hp 同 Hq 既大小一樣，證明左 size 。
+
+講左咁耐，重點係一個 subgroup H 將 G 分成左好多個 disjoint 又同樣大小既 cosets 。咁 H 本身都一個 coset ，所以 H 既 size 一定係 G 既 size 既一個 factor 。呢條我地叫做 Lagrange's theorem 。
+
+練習︰
+
+Multiplicative group of F7 係一個 group。淨係考慮 2 既 power 算係一個 subgroup。
+
+x|1|2|4
+-+-+-+-
+1|1|2|4
+-+-+-+-
+2|2|4|1
+-+-+-+-
+4|4|1|2
+
+d coset 係乜？邊個同邊個係朋友？

@@ -97,3 +97,5 @@ while(s[n - 1 - end] == b) {
 }
 cout << n - min(start, end) << "\n";
 ```
+
+作者：Cecilia, 整理：Gapry

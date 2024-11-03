@@ -15,6 +15,7 @@ Claim:
 Thm 1: 只要 `F(S)` 等於 `B(S)`, 咁 `L(S)` 就係 `n`   
 
 Proof By Case:
+```
 - Part 1, F(S) = B(S) = a
   - n = 3 
     - S = aaa, P(S) = Q(S) = 0, L(S) = n 
@@ -32,6 +33,7 @@ Proof By Case:
     - S = abbba              , P(S) = Q(S) = 1, L(S) = n 
 - Part 2, F(S) = B(S) = b 
   個道理同 Part 1 一樣，只係由 a 變咗做 b
+```
 
 跟住落嚟我地就要解決，當 `F(S)` 唔等於 `B(S)` 嘅時候，我地要點做？
 其實都好簡單，我地只要揾到一個 substring `T` of `S`，而 `F(T)` 係會等於 `B(T)` 就得

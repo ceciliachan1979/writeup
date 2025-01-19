@@ -6,14 +6,14 @@ Reference: [Wikipedia](https://en.wikipedia.org/wiki/Hall%27s_marriage_theorem)
 
 ## System of Distinct Representatives
 
-有一個 finite familiy of sets $F$ ，如果每一個 subset S 都有 $|\bigcup\limits_{s\in S} s| \ge |S|$ ，則可以從 $F$ 中的每一個 set 中抽一個 representative 令每一個 set 的 representative 都不一樣。
+有一個 finite familiy of sets $F$ ，如果每一個 subset S 都有 $\left|\bigcup\limits_{s\in S} s \ \right| \ge \left| S \right|$ ，則可以從 $F$ 中的每一個 set 中抽一個 representative 令每一個 set 的 representative 都不一樣。
 
 ## Graph matching
 
 有一個 bipartite graph $G = L + R$ ，如果 對於所有 $S \subseteq L$ ，
- $|\bigcup\limits_{l \in S} N(l)| \ge |S|$ ，則 $G$ 存在 perfect matching。
+ $\left|\bigcup\limits_{l \in S} N(l) \ \right| \ge \left| S \right|$ ，則 $G$ 存在 perfect matching。
 
-首先設 $L ＝ F$ , $R = \bigcup\limits_{f \in F} f$ ，相對每一個 $(l, r)，l \in L, r \in R$ ，它是一條 edge if and only if $r \in l$ ，這就可以使兩個 statement 等價。
+首先設 $L ＝ F$ , $R =$ $\displaystyle\bigcup\limits_{f \in F} f\ $，相對每一個 $(l, r)，l \in L, r \in R$ ，它是一條 edge if and only if $r \in l$ ，這就可以使兩個 statement 等價。
 
 ## Proof
 

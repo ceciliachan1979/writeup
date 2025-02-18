@@ -126,8 +126,8 @@ Ax + a &= b \\
 
 我們剛剛證了 strong duality！在 primal feasible 的情況下，dual feasible 而且 dual 的 optimal 和 primal 的 optimal 一樣！
 
-另外，我們留意到 reduced cost 只有在 non-basic variable 上才是非 $0$，這個叫做 complementary slackness，它的意思是當一個 dual constraint 不是 tight 的時候 (i.e. reduced cost 是非 $0$)，對應的 primal variable 必須是 $0$ (i.e. non-basic)。
+另外，我們留意到 reduced cost 只有在 non-basic variable 上才是非 $0$ ，這個叫做 complementary slackness，它的意思是當一個 dual constraint 不是 tight 的時候 (i.e. reduced cost 是非 $0$ )，對應的 primal variable 必須是 $0$ (i.e. non-basic)。
 
-complementary slackness 也有要求 primal constraint 不是 tight 的時候 dual variable 必須是 $0$，但因為 standard form 的 primal constraint 都是 tight 的，所以這個條件會 trivially 被滿足。
+complementary slackness 也有要求 primal constraint 不是 tight 的時候 dual variable 必須是 $0$ ，但因為 standard form 的 primal constraint 都是 tight 的，所以這個條件會 trivially 被滿足。
 
 - **TODO**: 試一次

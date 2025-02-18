@@ -13,7 +13,7 @@ Reference: [Wikipedia](https://en.wikipedia.org/wiki/Hall%27s_marriage_theorem)
 有一個 bipartite graph $G = L + R$ ，如果 對於所有 $S \subseteq L$ ，
  $\left|\bigcup\limits_{l \in S} N(l) \ \right| \ge \left| S \right|$ ，則 $G$ 存在 perfect matching。
 
-首先設 $L ＝ F$ , $R =$ $\displaystyle\bigcup\limits_{f \in F} f\ $，相對每一個 $(l, r)，l \in L, r \in R$ ，它是一條 edge if and only if $r \in l$ ，這就可以使兩個 statement 等價。
+首先設 $L ＝ F$ , $R =$  $\displaystyle\bigcup\limits_{f \in F} f\$ ，相對每一個 $(l, r)，l \in L, r \in R$ ，它是一條 edge if and only if $r \in l$ ，這就可以使兩個 statement 等價。
 
 ## Proof
 

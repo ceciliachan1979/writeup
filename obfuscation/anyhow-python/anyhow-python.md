@@ -1,5 +1,32 @@
 寫一下 anyhow-python 嘅創作理念
 
+首先寫返段 code 先！
+
+```py
+def anyhow(i):
+    n = i - 1
+    y = 0
+    h = i - 1
+    o = -i
+    while h > 0:
+        print([" ", " *"][y] * h, end=["","\n"][y])
+        y = 1 - y
+        t = -o - 2 * n
+        h += t
+        o = n
+        n = t
+```
+
+然後 output 係咁：
+
+```
+           *
+         * *
+       * * *
+     * * * *
+   * * * * *
+```
+
 又到節日，就想玩吓嘢，創作。適逢見到個畫星星 post，就想試吓寫 obfuscated program 去做呢個 task。
 
 Obfuscation 係指故意混淆代碼使其難以理解，呢個做法同 software engineering 嘅理念基本上係背道而馳，然而，在合適嘅場合，呢啲技巧係有用。例如防止抄襲，反編譯，反破解等等。

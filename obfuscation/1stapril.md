@@ -107,12 +107,92 @@ print("".join([chr(i%281)for i in[sum(code[j]*89**(j*k)for j in range(8))for k i
 當然，我可以用上述方法搵其實合適嘅 finite field 同 primitive root of unity 去做唔同 length 嘅 string，例如咁：
 
 ```py
-# Design
-code = [ord(c) for c in "2nd April 2025"]
+def is_prime(num):
+    if num <= 1:
+        return False
+    for i in range(2, int(num**0.5) + 1):
+        if num % i == 0:
+            return False
+    return True
 
-code = [i*261%281 for i in[sum(code[j]*116**(j*k)for j in range(14))for k in range(14)]]
+def next_prime(start):
+    num = start + 1
+    while not is_prime(num):
+        num += 1
+    return num
+
+def mod_inverse(a, m):
+    m0, x0, x1 = m, 0, 1
+    if m == 1:
+        return 0
+    while a > 1:
+        q = a // m
+        m, a = a % m, m
+        x0, x1 = x1 - q * x0, x0
+    if x1 < 0:
+        x1 += m0
+    return x1
+
+def factors(x):
+    result = set()
+    for i in range(2, int(x**0.5) + 1):
+        if x % i == 0:
+            result.add(i)
+            result.add(x // i)
+    return result
+
+def find_generator(p):
+    phi = p - 1
+    factors_of_phi = factors(phi)
+    for g in range(2, p):
+        is_generator = True
+        for factor in factors_of_phi:
+            if pow(g, phi // factor, p) == 1:
+                is_generator = False
+                break
+        if is_generator:
+            return g
+    return None
+
+def compute_values(s):
+    # Compute the length of the string
+    n = len(s)
+    
+    # Find the smallest prime p > 256 such that p - 1 is a multiple of n
+    p = next_prime(256)
+    while (p - 1) % n != 0:
+        p = next_prime(p)
+
+    # Compute the generator g of the finite field mod p
+    g = find_generator(p)
+    if g is None:
+        raise ValueError("No generator found for the finite field mod p.")
+
+    # Compute e = g^((p - 1)/n) mod p
+    e = pow(g, (p - 1) // n, p)
+    
+    # Compute d to be the multiplicative inverse of e mod p
+    d = mod_inverse(e, p)
+    
+    # Compute i to be the multiplicative inverse of n mod p
+    i = mod_inverse(n, p)
+
+    # Compute the code
+    code = [ord(c) for c in s]
+    code = [v * i % p for v in[sum(code[j]*e**(j*k)for j in range(n))for k in range(n)]]
+
+    return code, p, d, n
+
+
+# Design
+s = "2nd April 2025"
+code, p, d, n = compute_values(s)
+
 
 # Challenge
 print("code=%s" % code)
-print("".join([chr(i%281)for i in[sum(code[j]*172**(j*k)for j in range(14))for k in range(14)]]))
+print("print(\"\".join([chr(v%%%s)for v in[sum(code[j]*%s**(j*k)for j in range(%s))for k in range(%s)]]))" % (p, d, n, n))
+
+# Testing
+print("".join([chr(v%p)for v in[sum(code[j]*d**(j*k)for j in range(n))for k in range(n)]]))
 ```

@@ -195,7 +195,7 @@ def construct(goal):
 
     return (p, q, d)
 
-goal = "You fool\n"
+goal = "Not fool\n"
 
 (v1, v2, v3) = construct(goal)
 length = len(goal)
@@ -210,3 +210,4 @@ for i in range(length * 10):
   v2 = (v3 - v1 * v1)//v2
   print(chr(v4), end="")
 ```
+[Try it online!](https://tio.run/##jVNNbxoxEL3vrxgRRbLJ8rHAKRKVID330iPlYLBZVlrsxWu28OvpG3sTmhyqIkFmxm/evPlIcwtHZ@ej5tbc7vfq1Dgf6KTCMcuesif6bqxpAynaOxsqezGaDl7tQ@UsuQOFY9XSwfkToMVEKHohsbvidy8nQrNhpIxEwcU/78GJEErD2kn2hTIxh6HaHEjHqkLlZHPS8jUjfMQuB4SWZJOrc/DA1dH1Jly8JZHCOShpSLFCTmy@F4gqfrq6MxBvyJwvKjZzBdMX6SjWS4/Q9uJ17JXEaI3n9uyD0KYOSsoJzVZARvEtk4v/Fr76sNawDI1oF703eKN9NGMR1rem4ZBmgCzQ0QrfN/mp@dE6T@AcKCDQLivC7trgL/sgSqfqXpVlwmlORaLQ7BY5zZHDfgl/47wWV8lNYz6VJU7fxudD5XEWSyo3021KaOHVFbZWborXbSJtx6ppjNUiwnvmNijPqe24cY2Q/xIToX3a72NVG6qNFa2kbzRNXcSBxlnzGNPZ9MT98aRs0cDO6cywvxYU3xp6QbnU0RCQ7NNMkXhOPNw90gc/XMBIXP3LDrJMdNDZzfCdM/eXUWfQW4YjjwbCU6jxlQ1i0BWIPrcDeqaueERnj@jsEZ0/ovOP6Ad3ekkudPK6Kl6XV7Y0oocNqZjG1XcLpDABpOOM@X99HG8Z1HLCVYFhcR1fWcfn1hUcY2kARZ9fCjkBHC9Jz/7oRbfA2LHw5WAg7/c/ "Python 3 (PyPy) – Try It Online")

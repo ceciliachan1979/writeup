@@ -8,23 +8,27 @@ def anyhow(i):
     y = 0
     h = i - 1
     o = -i
-    while h > 0:
-        print([" ", " *"][y] * h, end=["","\n"][y])
+    while h >= 0:
+        print([" ", "*"][y] * h, end=["","\n"][y])
         y = 1 - y
         t = -o - 2 * n
         h += t
         o = n
         n = t
+anyhow(6)
 ```
+[Try it online!](https://tio.run/##VY/dCsIwDIXv9xSHXG1zA6fghbC9yNyFsEkLkhYpjDx9TatUzFXOl5@TeAnG8bn34iXGdXvgzmLcXtvmWkGDMcKix5CVqDrmzPxxp6q3Od2NfW5anrTzsyKFf1kO9UygDtTSMsuCFqbDxus4E3V040ybMpK8BnWQQkJycYpOOssFGxxGhCLTLb9iuj9U36cuTYxv "Python 3 (PyPy) – Try It Online")
 
 然後 output 係咁：
 
 ```
-           *
-         * *
-       * * *
-     * * * *
-   * * * * *
+     *
+    **
+   ***
+  ****
+ *****
+******
+
 ```
 
 又到節日，就想玩吓嘢，創作。適逢見到個畫星星 post，就想試吓寫 obfuscated program 去做呢個 task。

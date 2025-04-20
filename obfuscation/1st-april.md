@@ -157,9 +157,10 @@ def find_generator(p):
 def compute_values(s):
     # Compute the length of the string
     n = len(s)
+    code = [ord(c) for c in s]
     
-    # Find the smallest prime p > 256 such that p - 1 is a multiple of n
-    p = next_prime(256)
+    # Find the smallest prime p > max(code) such that p - 1 is a multiple of n
+    p = next_prime(max(code))
     while (p - 1) % n != 0:
         p = next_prime(p)
 
@@ -178,7 +179,6 @@ def compute_values(s):
     i = mod_inverse(n, p)
 
     # Compute the code
-    code = [ord(c) for c in s]
     code = [v * i % p for v in[sum(code[j]*e**(j*k)for j in range(n))for k in range(n)]]
 
     return code, p, d, n
@@ -196,3 +196,4 @@ print("print(\"\".join([chr(v%%%s)for v in[sum(code[j]*%s**(j*k)for j in range(%
 # Testing
 print("".join([chr(v%p)for v in[sum(code[j]*d**(j*k)for j in range(n))for k in range(n)]]))
 ```
+[Try it online!](https://tio.run/##lVRRb9owEH7Pr7hRIdmMUei0l6lMmrr1cU/TXhhDHjHBbeJktsPor2d3tlMMDdOGWkjufPfd992dmye3rfXbN81T83Q45HIDyq4aoyrJdFvx9xngR20AX@B2DrNgoI@RrjUa7kVppTduagMKlAYjdCHZzRifHWUZjaaTdxxew4wfw2POIYbM5zA9OnpzR8NX08osoyq13LtYp3XCuJiZUs7BWwjP235vVSlB166PWhf0eh5PRyS0BaCqzldK76SxkokxdHHVdAx7@p8hXjUGfJx1WlXE6KVS06QaAR/SE78wiYDra6ieTZhTeOuQHo/2Z1D8eoOBo2CZduBovk3lxHfkVk1TcvtZ4LYRa1cby/aRlJG2LR0JKB3jf2nq/lJL9xcbSpknIs@Z4pc8e1IgumOlwRurVTpfFVJLI7Bq1kTkZouA0KAYoQGR1KrerIKrY4lvR07FCacmZWGPIBjtR67zUWRIR@GnSKeEUYum/s2Ksa8PeYXDBHU2HRdwj7Offn4aKR5TwdOo3h0qUjm/1Druz7qumtbJ1U6UrbTMRgGu4C44wG0llFIXbgv1xr9ZZ5QO6TQWiE4M86/rOpdoWdQmZ2vuVVqTQHbp3THzPfYvJKpEWUrrwC8jtu4DVGLPKAsH2663eEq40FIkiDtQ4RCoBvcGS9Gh64iX3AHP8TxZMuYzcBxJDa9ORvIsuuFZD/tjN4pOAhxB5ehHljndDND4uIKm7Hw6u4UsiAIJn1wIQlkJ30j6z8bg6cGXOoHb1C0qRSr2Y04GL@ol@YsfLDK@1jypjnxxFjtFcB41jWLani4V9qiGn0GCqLtaC6d2EuI9SGrIBCCnKzC5JuWl1OqfUusktTpLHaruaRY1/2QWd3gzKmx944XcIcDCtpUfksXDciRHI/YweuTkfDjeBZp7y2NqWS6zdIcoA1YxhnyMs5hlV/BJWlXozCLs4AY79xGnqoSb6c27QXZyGg@82Duf4W5LG4FwGYbi/TqgsPnQDpCAH@vOHn6@D74PJg@10myx3hq2Gw6HlvfSHNp@nnj@nCialkvOCZLFevEPFwrr@4rbSrsfqzgFb/qh8/9RmPPD4Q8 "Python 3 (PyPy) – Try It Online")

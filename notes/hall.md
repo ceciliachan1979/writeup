@@ -21,7 +21,7 @@ Perfect matching 其實就是 maximum flow
 
 如果有 Hall's condition 而 maximum flow 沒有用䀆所有的 $L$ 。
 
-由任意 unmatched $l_1$ 出發，by Hall's condition， $l_1$ 一定有最少一個 neighbor $r_1$ ，如果它的 neighbor 是 matched 找它的左手邊，現在 $\{l_1, l_2\}$ 一定有兩個 neighbors，減去 $r_1$ 必然有 $r_2$ ，一直這樣做下去，它不可能無限，所以必然要停，停的時候只能是 $r_k$ 是 unmatched。到這就可以了，找到 augmenting path，matching 不是 maximum，矛盾。
+由任意 unmatched $l\_1$ 出發，by Hall's condition， $l\_1$ 一定有最少一個 neighbor $r\_1$ ，如果它的 neighbor 是 matched 找它的左手邊，現在 $\{l\_1, l\_2\}$ 一定有兩個 neighbors，減去 $r\_1$ 必然有 $r\_2$ ，一直這樣做下去，它不可能無限，所以必然要停，停的時候只能是 $r\_k$ 是 unmatched。到這就可以了，找到 augmenting path，matching 不是 maximum，矛盾。
 
 ## 例題
 

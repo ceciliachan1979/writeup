@@ -31,37 +31,37 @@ subject to flow conservation and capacity constraints
 
 對於每一條 edge $(u, v)$ ，我們都有一條 capacity constraint，所以它們的 dual variable 叫做 $x_{uv}$ 。capacity constraint 是 upper bound 的，所以 dual variable 是 $\ge 0$ 的。
 
-Dual 的 objective function 是 $\sum_{((u, v) \in E)} x_{uv} c_{uv}$ ，其中 $c_{uv}$ 是 edge $(u, v)$ 的 capacity，而 $y_v$ 的 coefficient 是 $0$ 所以不用寫出來。
+Dual 的 objective function 是 $\sum\_{((u, v) \in E)} x\_{uv} c\_{uv}$ ，其中 $c\_{uv}$ 是 edge $(u, v)$ 的 capacity，而 $y\_v$ 的 coefficient 是 $0$ 所以不用寫出來。
 
 現在我們開始看到 min-cut 的影子了，我們想要 minimize sum of capacities。
 
-接下來是 dual 的 constraint，對於每一個 edge $(u, v)$ ，我們有一個 primal variable $f_{uv}$ ，所以我們有一個 dual constraint。這些 primal variable 都是 $\ge 0$ ，所以 dual constraint 都是 $\ge x$ ， $x$ 是 primal objective 中 $f_{uv}$ 的 coefficient。如果 $u$ 是 $s$ ， $x$ 就是 1，否則 $x$ 就是 0。
+接下來是 dual 的 constraint，對於每一個 edge $(u, v)$ ，我們有一個 primal variable $f\_{uv}$ ，所以我們有一個 dual constraint。這些 primal variable 都是 $\ge 0$ ，所以 dual constraint 都是 $\ge x$ ， $x$ 是 primal objective 中 $f\_{uv}$ 的 coefficient。如果 $u$ 是 $s$ ， $x$ 就是 1，否則 $x$ 就是 0。
 
 最後是 dual constraint 的左手邊。每一個非 source 非 sink 的 flow variable $f_{uv}$ 在 primal 中出現 exactly 三次
 
-- 第一次是 flow conservation， $\sum\limits_{w}f_{wu} - \sum\limits_{v}f_{uv} = 0$ ，所以 dual constraint 中 $y_u$ 的 coefficient 是 $-1$ 。
-- 第二次還是 flow conservation， $\sum\limits_{v}f_{uv} - \sum\limits_{w}f_{vw} = 0$ ，所以 dual constraint 中 $y_v$ 的 coefficient 是 $1$ 。
-- 第三次是 capacity， $f_{uv} \le c_{uv}$ ，所以 dual constraint 中 $x_{uv}$ 的 coefficient 是 $1$ 。
+- 第一次是 flow conservation， $\sum\limits\_{w}f\_{wu} - \sum\limits\_{v}f\_{uv} = 0$ ，所以 dual constraint 中 $y\_u$ 的 coefficient 是 $-1$ 。
+- 第二次還是 flow conservation， $\sum\limits\_{v}f\_{uv} - \sum\limits\_{w}f\_{vw} = 0$ ，所以 dual constraint 中 $y\_v$ 的 coefficient 是 $1$ 。
+- 第三次是 capacity， $f\_{uv} \le c\_{uv}$ ，所以 dual constraint 中 $x\_{uv}$ 的 coefficient 是 $1$ 。
 
-所以 dual constraint 就是 $-y_u + y_v + x_{uv} \ge 0$ 。
+所以 dual constraint 就是 $-y\_u + y\_v + x\_{uv} \ge 0$ 。
 
-對於 source flow，它只有第二次的 flow conservation，所以 dual constraint 是 $x_{sv} + y_v \ge 1$ 。
+對於 source flow，它只有第二次的 flow conservation，所以 dual constraint 是 $x\_{sv} + y\_v \ge 1$ 。
 
-對於 sink flow，它只有第一次的 flow conservation，所以 dual constraint 是 $x_{vt} - y_v \ge 0$ 。
+對於 sink flow，它只有第一次的 flow conservation，所以 dual constraint 是 $x\_{vt} - y\_v \ge 0$ 。
 
 如果存在 source 到 sink 的直接 link，那 dual constraint 就是 $x_{st} \ge 1$ 。
 
 總結一下，整個 dual formulation 是
 
-minimize $\sum_{((u, v) \in E)} x_{uv} c_{uv}$ 
+minimize $\sum\_{((u, v) \in E)} x\_{uv} c\_{uv}$ 
 
 subject to
 
- $-y_u + y_v + x_{uv} \ge 0$ for each not source/sink edge $(u, v)$ 
+ $-y\_u + y\_v + x\_{uv} \ge 0$ for each not source/sink edge $(u, v)$ 
 
- $x_{sv} + y_v \ge 1$ for each edge $(s, v)$ 
+ $x\_{sv} + y\_v \ge 1$ for each edge $(s, v)$ 
 
- $x_{vt} - y_v \ge 0$ for each edge $(v, t)$ 
+ $x\_{vt} - y\_v \ge 0$ for each edge $(v, t)$ 
 
  $x_{st} \ge 1$ for edge $(s, t)$ if exists
 
@@ -73,11 +73,11 @@ subject to
 
 我們先假設 $y$ 的值不是 0 就是 1。
 
-- 如果 $u, v \in N$ ，那麼如果 $y_u = y_v$ ，則 $x_{uv} = 0$ ，否則 $x_{uv} \ge y_v - y_u$ = 1，最小化會讓 $x_{uv} = 1$ 
-- 如果 $(s, v) \in E$ ，那麼如果 $y_v = 1$ ，則 $x_{s,v} = 0$ ，否則 $x_{sv} \ge 1 - y_v$ = 1，最小化會讓 $x_{sv} = 1$ 
-- 如果 $(v, t) \in E$ ，那麼如果 $y_v = 0$ ，則 $x_{v,sink} = 0$ ，否則 $x_{vt} \ge y_v$ = 1，最小化會讓 $x_{vt} = 1$ 
+- 如果 $u, v \in N$ ，那麼如果 $y\_u = y\_v$ ，則 $x\_{uv} = 0$ ，否則 $x\_{uv} \ge y\_v - y\_u$ = 1，最小化會讓 $x\_{uv} = 1$ 
+- 如果 $(s, v) \in E$ ，那麼如果 $y\_v = 1$ ，則 $x\_{s,v} = 0$ ，否則 $x\_{sv} \ge 1 - y\_v$ = 1，最小化會讓 $x\_{sv} = 1$ 
+- 如果 $(v, t) \in E$ ，那麼如果 $y\_v = 0$ ，則 $x\_{v,sink} = 0$ ，否則 $x\_{vt} \ge y\_v$ = 1，最小化會讓 $x\_{vt} = 1$ 
 
-所以 $y_u$ 可以理解成一個 node $u$ 是不是在 $S$ 的一個 indicator，只要 $y_u = 1$ ，那麼 $u$ 就在 $S$ 裡面， $x_{uv}$ 可以理解成一個 edge $(u, v)$ 是不是在 cut 裡面，只要 $x_{uv} = 1$ ，那麼 $(u, v)$ 就在 cut 裡面。
+所以 $y\_u$ 可以理解成一個 node $u$ 是不是在 $S$ 的一個 indicator，只要 $y\_u = 1$ ，那麼 $u$ 就在 $S$ 裡面， $x\_{uv}$ 可以理解成一個 edge $(u, v)$ 是不是在 cut 裡面，只要 $x\_{uv} = 1$ ，那麼 $(u, v)$ 就在 cut 裡面。
 
 > 唯一的問題是 $y$ 為甚麼是 0/1？
 

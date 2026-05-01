@@ -2,22 +2,22 @@
 
 這是 Farkas lemma 系列的第兩篇，今天我們會講一個叫做 Carathéodory’s theorem 的 theorem，這個 theorem 的 statement 是這樣的：
 
-> Let $X = x_1, x_2, \ldots, x_n$ be points in $\mathbb{R}^d$ , for any point $x \in \text{ConvexHull}(X)$ , there exists subset $I \subseteq \{1, 2, \ldots, n\}$ such that $Y = \{x_j : j \in I\}$ is affine independent and $x \in \text{ConvexHull}(Y)$ .
+> Let $X = x\_1, x\_2, \ldots, x\_n$ be points in $\mathbb{R}^d$ , for any point $x \in \text{ConvexHull}(X)$ , there exists subset $I \subseteq \{1, 2, \ldots, n\}$ such that $Y = \{x\_j : j \in I\}$ is affine independent and $x \in \text{ConvexHull}(Y)$ .
 
 我們之後需要的，是它的一個 conic variant：
 
-> Let $X = x_1, x_2, \ldots, x_n$ be points in $\mathbb{R}^d$ , for any point $x \in \text{ConicHull}(X)$ , there exists subset $I \subseteq \{1, 2, \ldots, n\}$ such that $Y = \{x_j : j \in I\}$ is linearly independent and $x \in \text{ConicHull}(Y)$ .
+> Let $X = x\_1, x\_2, \ldots, x\_n$ be points in $\mathbb{R}^d$ , for any point $x \in \text{ConicHull}(X)$ , there exists subset $I \subseteq \{1, 2, \ldots, n\}$ such that $Y = \{x\_j : j \in I\}$ is linearly independent and $x \in \text{ConicHull}(Y)$ .
 
 ## 定義
 
-假設我們有一些 vectors $\{x_0, x_1, \cdots x_k\}$ 
+假設我們有一些 vectors $\{x\_0, x\_1, \cdots x\_k\}$ 
 
-- 如果 $\sum c_i x_i = 0 \implies c_i = 0$ ，那麼這些 vectors 是 linearly independent 的。
-- 如果 $\sum_{i\ne 0} c_i (x_i - x_0) = 0 \implies c_i = 0$ ，那麼這些 vectors 是 affine independent 的。當然 $x_0$ 是可以任意選的。
+- 如果 $\sum c\_i x\_i = 0 \implies c\_i = 0$ ，那麼這些 vectors 是 linearly independent 的。
+- 如果 $\sum\_{i\ne 0} c\_i (x\_i - x\_0) = 0 \implies c\_i = 0$ ，那麼這些 vectors 是 affine independent 的。當然 $x\_0$ 是可以任意選的。
 
 另外
-- 如果 $c_i \ge 0$ ，那麼 $\sum c_i x_i$ 叫做一個 conic combination。
-- 如果 $c_i \ge 0$ 且 $\sum c_i = 1$ ，那麼 $\sum c_i x_i$ 叫做一個 convex combination。
+- 如果 $c\_i \ge 0$ ，那麼 $\sum c\_i x\_i$ 叫做一個 conic combination。
+- 如果 $c\_i \ge 0$ 且 $\sum c\_i = 1$ ，那麼 $\sum c\_i x\_i$ 叫做一個 convex combination。
 
 ## Intuition
 
@@ -46,7 +46,7 @@ Intuition 就是想法，它並不嚴謹，主要是幫助我們理解定義。
 
 我們先證明 conic 版，先把原文寫得更 algebraic 一些，方便操作。
 
-假如我有一些 vectors $a_1, a_2 \cdots a_n$ ，它們的 conic hull 可以寫成 $\{Ax:x \ge 0\}$ ，不難看出這只是把 conic combination 寫成 matrix 格式而已。
+假如我有一些 vectors $a\_1, a\_2 \cdots a\_n$ ，它們的 conic hull 可以寫成 $\{Ax:x \ge 0\}$ ，不難看出這只是把 conic combination 寫成 matrix 格式而已。
 
 > 留意 $x$ 是一個 vector， $x \ge 0$ 指的是所有 component 都 $\ge 0$ 。
 
@@ -94,7 +94,7 @@ x &= \sum_{i=1}^d \beta_i b_i + \left(1 - \sum_{i=1}^d \beta_i\right) B
 \end{align*}
 $$
 
-這幾乎就是 convex 版的 theorem 了，唯一的問題是 $1 - \sum_{i=1}^d \beta_i$ 是不是 $\ge 0$ 。
+這幾乎就是 convex 版的 theorem 了，唯一的問題是 $1 - \sum\_{i=1}^d \beta\_i$ 是不是 $\ge 0$ 。
 
 記得我們理解 convex 版是 $x$ 在某個三角形裡，假如我們挑了一個 $B$ 沒有任何一個包括 $B$ 的三角形能包括 $x$ ，那就必然會有負值的問題，關鍵是我們怎麼挑 $B$ 。
 
@@ -118,6 +118,6 @@ https://en.wikipedia.org/wiki/Carath%C3%A9odory%27s_theorem_(convex_hull)
 
 重點來了， $x$ 的最後一個 coordinate 是 1，所以這個 conic combination 其實也是一個 convex combination。
 
-然後因為 linear independent，所以刪掉最後一個 dimension 的話它其實是 affine independent 的。考慮 $\sum c_i (v_i - B) = 0 \implies \sum c_i v_i - \sum c_i B = 0$ ，這個時候如果我全部左手邊 vector 加回一個 dimension，那麼這個 sum 都最後一個 dimension 還是 $0$ ，所以可以利用 linear independency claim $c_i = 0$ ，這就證了 affine independent。
+然後因為 linear independent，所以刪掉最後一個 dimension 的話它其實是 affine independent 的。考慮 $\sum c\_i (v\_i - B) = 0 \implies \sum c\_i v\_i - \sum c\_i B = 0$ ，這個時候如果我全部左手邊 vector 加回一個 dimension，那麼這個 sum 都最後一個 dimension 還是 $0$ ，所以可以利用 linear independency claim $c\_i = 0$ ，這就證了 affine independent。
 
 這樣就證了 convex 版的 theorem。

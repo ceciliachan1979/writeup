@@ -67,15 +67,17 @@ Reference: [Wikipedia](https://en.wikipedia.org/wiki/Edmonds%E2%80%93Karp_algori
 
 source 到 source 的 shortest path length 永遠是 $0$ ，所以 $v \neq source$ 。 $v$ 在 $G_{f'}$ 的 shortest path 必然有一個 parent。我們把這個 parent 命名為 $u$ ，所以 $d(v, f') = d(u, f') + 1$ 。
 
-接下來，我們看看 $(u, v)$ 這條 edge。它明顯在 $G_{f'}$ 中存在，要不然 $u$ 不可能在 $G_{f'}$ 的中做 $v$ 的 parent。它有可能在 $G_f$ 中存在嗎？
+接下來，我們看看 $(u, v)$ 這條 edge。它明顯在 $G\_{f'}$ 中存在，要不然 $u$ 不可能在 $G\_{f'}$ 的中做 $v$ 的 parent。它有可能在 $G\_f$ 中存在嗎？
 
 假設 $(u, v)$ 在 $G_f$ ，可以用這個方法找到矛盾：
 
-$$\begin{align*}
+$$
+\begin{align*}
 d(v, f) &\le d(u, f) + 1  \\
 &\le d(u, f') + 1 \\
 &= d(v, f')
-\end{align*}$$
+\end{align*}
+$$
 
 - 第一行是三角不等式，shortest path distance 是一個 metric，所以 $||s, v|| <= ||s, x|| + ||u, v||$ 。
 - 第二行是因為 $v$ 是第一次發現的 counter example，所以 $u$ 不是一個 counter example，即 $d(u, f) \le d(u, f')$ 。
@@ -85,15 +87,17 @@ d(v, f) &\le d(u, f) + 1  \\
 
 假設 $(u, v)$ 不在 $G_f$ ，我們一樣可以找到矛盾：
 
-如果 $(u, v)$ 不在 $G_f$ ，但 $(u, v)$ 在 $G_{f'}$ ，那麼上一個 iteration 我們一定是把 flow 從 $v$ 送到 $u$ 。但 Edmonds-Karp 只會找 shortest path 來 augment，所以在 $G_f$ ， $v$ 是 $u$ 的 parent。
+如果 $(u, v)$ 不在 $G\_f$ ，但 $(u, v)$ 在 $G\_{f'}$ ，那麼上一個 iteration 我們一定是把 flow 從 $v$ 送到 $u$ 。但 Edmonds-Karp 只會找 shortest path 來 augment，所以在 $G\_f$ ， $v$ 是 $u$ 的 parent。
 
-$$\begin{align*}
+$$
+\begin{align*}
 d(v, f) &=   d(u, f) - 1  \\
 &\le d(u, f') - 1 \\
 &=   d(u, f') + 1 - 2 \\
 &=   d(v, f') - 2 \\
 &<   d(v, f')
-\end{align*}$$
+\end{align*}
+$$
 
 - 第一行是因為在 $G_f$ ， $v$ 是 $u$ 的 parent。
 - 第二行是因為 $u$ 不是 counter example，所以 $d(u, f) \le d(u, f')$ 。

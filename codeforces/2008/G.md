@@ -4,11 +4,11 @@
 
 呢題依然係講緊 invariant 心法。金翅大鑊了，有好多 operations 添，點算呢？
 
-個 idea 依然係 gcd，只不過係所有 array entries 嘅 gcd $g$。
+個 idea 依然係 gcd，只不過係所有 array entries 嘅 gcd $g$ 。
 
-因為今次有減號，所以可以直接整到 $g$。
+因為今次有減號，所以可以直接整到 $g$ 。
 
-方法係咁，求其執兩個唔一樣嘅 value，一直做大等於大減細，睇吓個 execution sequence？冇錯，結果就係做左 Euclidean algorithm，所以出到 $g$，當然，亦都出到 $0$。
+方法係咁，求其執兩個唔一樣嘅 value，一直做大等於大減細，睇吓個 execution sequence？冇錯，結果就係做左 Euclidean algorithm，所以出到 $g$ ，當然，亦都出到 $0$ 。
 
 我哋想要 maxmize mex，自然想啲數愈細愈好，但重覆冇意義，所以你會想做 $0,g,2g,\cdots,(n-1)g$ 咁樣。
 
@@ -18,7 +18,7 @@
 
 因為有 $k-1$ 個人用，所以 $f =\min\left(\left\lfloor\frac{k-1}{g-1}\right\rfloor, n\right)$ 個 fully present blocks。
 
-到呢個位下一個要點嘅號係 $fg$﹐如果 $f < n$ ，咁其實 $fg$ 係有到，所以下一個需要係後備嘅 $fg+1$，之後 $g-1$ 個人都係冇到。
+到呢個位下一個要點嘅號係 $fg$ ﹐如果 $f < n$ ，咁其實 $fg$ 係有到，所以下一個需要係後備嘅 $fg+1$ ，之後 $g-1$ 個人都係冇到。
 
 然後你已經用咗 $f(g-1)$ 個後備，所以淨返 $k - f(g-1)$ 個人，然後呢個數一定係 $<g-1$ ，所以順序用晒啲後備佢，下一個依然冇到，答案就係佢了。
 

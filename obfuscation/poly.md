@@ -19,11 +19,12 @@ public class Main {
 
 神奇嘅地方當然係計 polynomial 但竟然冇乘號 ⋯ 當然，個 loop 係用 repeated 嘅加數去做到乘數嘅效果，但係唔明顯點解咁加就可以。
 
-> 當然，用 repeated addition 去代替乘法係會成 $O(xd)$ 咁慢啦。$x$ 係要 evaluate 個 point 而 $d$ 係 polynomial degree。 (pun intended 😆 XD)
+> 當然，用 repeated addition 去代替乘法係會成 $O(xd)$ 咁慢啦。 $x$ 係要 evaluate 個 point 而 $d$ 係 polynomial degree。 (pun intended 😆 XD)
 
 想明白點整出嚟，我哋可以考慮一個 finite difference scheme：
 
-$$\begin{align*}
+$$
+\begin{align*}
 a(n) &= 4n^2 + 5n + 6 \\
 b(n) &= a(n+1) - a(n) \\
      &= 4(n+1)^2 + 5(n+1) + 6 - (4n^2 + 5n + 6) \\
@@ -31,14 +32,17 @@ b(n) &= a(n+1) - a(n) \\
 c(n) &= b(n+1) - b(n) \\
      &= 8(n+1) + 9 - (8n + 9) \\
      &= 8
-\end{align*}$$
+\end{align*}
+$$
 
 有了這個 finite difference scheme 後，算 $a(n)$ 和 $b(n)$ 就可以這樣算了：
 
-$$\begin{align*}
+$$
+\begin{align*}
 a(n + 1) &= a(n) + b(n) \\
 b(n + 1) &= b(n) + c(n) 
-\end{align*}$$
+\end{align*}
+$$
 
 當然，我們要有 $a(0),b(0),c(0)$ 的值，然後一直的往上加就可以了。
 
@@ -94,14 +98,17 @@ exec(code)
 
 接下來的部分其實同段 code 冇關，主要係嘗試 solve 個 program 究竟係度計緊乜。想像你要去 reverse engineering 呢段 code，你會想去 solve 呢個 recurrence。
 
-$$\begin{align*}
+$$
+\begin{align*}
   a(n+1) &= a(n) + b(n) \\
   b(n+1) &= b(n) + 6 
-\end{align*}$$
+\end{align*}
+$$
 
 又或者用 matrix notation
 
-$$\begin{align*}
+$$
+\begin{align*}
   \left(
   \begin{array}{c}
   a_{n+1} \\
@@ -121,7 +128,8 @@ $$\begin{align*}
   c_n
   \end{array}
   \right)
-\end{align*}$$
+\end{align*}
+$$
 
 換句話說，我們想找中間呢個 matrix 的 power。
 
@@ -129,7 +137,8 @@ $$\begin{align*}
 
 要搵 Jordan form 嘅 power，個 matrix 可以咁樣拆：
 
-$$\begin{align*}
+$$
+\begin{align*}
    &\left(
   \begin{array}{ccc}
   1 & 1 & 0 \\
@@ -150,14 +159,16 @@ $$\begin{align*}
   0 & 0 & 0 \\
   \end{array}
   \right)\right)^n
-\end{align*}$$
+\end{align*}
+$$
 
 第一個 matrix 只係 identity，佢嘅所有 power 都係 identity。
 第二個 matrix 叫做 shift matrix，佢個功能係 shift 向左，即係 f([1,2,3]) = [2,3,0] 咁，咁好自然 shift shift 吓就會 0 晒。呢種 repeated application 最終會 0 晒嘅 matrix 我哋叫做 nilpotent。重點係呢個 matrix 只有 finite 咁多個 power，所以如果我哋用 binomial theorem 去爆個 power expansion，無論 n 幾大，最終都會只有 finite 個 term，呢個就係計 Jordan form power 嘅方法。
 
 咁計嘅話，最終你會得到一個 linear combination of binomial coefficient，然後計得返原本條 polynomial ⋯ 
 
-$$\begin{align*}
+$$
+\begin{align*}
    &\left(\left(
   \begin{array}{ccc}
   1 & 0 & 0 \\
@@ -190,16 +201,19 @@ $$\begin{align*}
   0 & 0 & 0 \\
   \end{array}
   \right)
-\end{align*}$$
+\end{align*}
+$$
 
 所以
 
-$$\begin{align*}
+$$
+\begin{align*}
    & a(n) \\
   =& a(0) + C^n_1b(0) + C^n_2 c(0) \\
   =& 6 + 9n + 8\frac{n(n-1)}{2}    \\
   =& 4n^2 + 5n + 6
-\end{align*}$$
+\end{align*}
+$$
 
 Phew ...
 

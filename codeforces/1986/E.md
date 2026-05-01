@@ -2,7 +2,7 @@
 
 問題係[呢度](https://codeforces.com/contest/1986/problem/E)
 
-呢題依然係講緊 invariant 心法。這題只有一個 operation，就係 $+k$。
+呢題依然係講緊 invariant 心法。這題只有一個 operation，就係 $+k$ 。
 
 今次個 invariant 係 $\mod k$ 一樣，呢點係理所當然嘅。
 
@@ -10,25 +10,25 @@
 
 用呢點就可以 trim 咗好多 possibilities，我哋可以先根據 $\mod k$ 分組，因為只有同一組裡面嘅數字有可能一樣。
 
-跟住 focus 一個 group，個 group 裡面個個 element 都係 $mk + r$，個個 element 個 $m$ 唔同，但 $r$ 一樣，所以可以只考慮 $m$。
+跟住 focus 一個 group，個 group 裡面個個 element 都係 $mk + r$ ，個個 element 個 $m$ 唔同，但 $r$ 一樣，所以可以只考慮 $m$ 。
 
-每次 $+k$ 其實只係 increment $m$，所以其實問題係問最少要 increment 幾次先至可以將啲數字變成一對對。
+每次 $+k$ 其實只係 increment $m$ ，所以其實問題係問最少要 increment 幾次先至可以將啲數字變成一對對。
 
 自然地，你會諗到 sorting 呢個 greedy approach，我冇理由唔做 $m$ value 最接近嗰啲啫。
 
 For even length array，sorting 係 optimal。
 
-反證法：如果最細 $a$ 唔係 pair with 第二細 $b$，個兩 pairs 會係 $(a,c)$ 同埋 $(b,d)$
+反證法：如果最細 $a$ 唔係 pair with 第二細 $b$ ，個兩 pairs 會係 $(a,c)$ 同埋 $(b,d)$
 
 $(a,c)$ 要用 $c-a$ 次先整到 $(c,c)$
 $(b,d)$ 要用 $d-b$ 次先整到 $(d,d)$
 
-所以我想證 $(c-a)+(d-b)\ge(b-a)+|c-d|$，後面用 absolute 係因為我唔知 $c$ 大定 $d$ 大。
+所以我想證 $(c-a)+(d-b)\ge(b-a)+|c-d|$ ，後面用 absolute 係因為我唔知 $c$ 大定 $d$ 大。
 
-執一執就會變成 $c+d-|c-d|\ge 2b$。
+執一執就會變成 $c+d-|c-d|\ge 2b$ 。
 
-- Case 1: $c \ge d$，明顯 $c+d-(c-d) = 2d \ge 2b$
-- Case 2: $c \le d$，明顯 $c+d-(d-c) = 2c \ge 2b$
+- Case 1: $c \ge d$ ，明顯 $c+d-(c-d) = 2d \ge 2b$
+- Case 2: $c \le d$ ，明顯 $c+d-(d-c) = 2c \ge 2b$
 
 咁就證到 sorting 冇問題。
 

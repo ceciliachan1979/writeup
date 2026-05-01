@@ -8,11 +8,13 @@
 
 我們首先假設 standard form
 
-$$\begin{align*}
+$$
+\begin{align*}
 \text{min}\quad z =& c^Tx\\
 \text{subject to}\quad Ax =& b\\
 \quad x \ge& 0
-\end{align*}$$
+\end{align*}
+$$
 
  $Ax = b$ 可以讓我們很方便的把這些 constraint 做 row operations，做這些 row operations 不會對 feasible solution 有任何影響。
 
@@ -58,21 +60,25 @@ Rigorous 一點，如果存在 $p$ such that $A(x+p) = A(x-p) = b$ , $x+p\ge 0$ 
 ## Simplex
 假設我們要 solve 這個 linear program：
 
-$$\begin{align*}
+$$
+\begin{align*}
 \text{min}\quad z =& c^Tx \\
 \text{subject to}\quad Ax =& b \\
 x\ge& 0
-\end{align*}$$
+\end{align*}
+$$
 
 我們先把它變成
 
-$$\begin{align*}
+$$
+\begin{align*}
 \text{min}\quad y \\
 \text{subject to}\quad Ax + a =& b \\
 -z + c^Tx =& 0 \\
 -y + 1^Ta =& 0\\
 x\ge& 0
-\end{align*}$$
+\end{align*}
+$$
 
  $a$ 是 artificial variables，我們的首要目標是要把 $a$ 做成 $0$ ，把它做成 $0$ 就能把它變回原來的模樣了。
 
@@ -80,13 +86,15 @@ x\ge& 0
 
 由於我把 $-y+1^Ta ＝0$ 寫成是一個 constraint，那麼顯然它可以加上其它 constraint 而不改變它的本質，我可以寫
 
-$$\begin{align*}
+$$
+\begin{align*}
 Ax + a &= b \\
 1^T(Ax + a) &= 1^Tb \\
 1^TAx + 1^Ta &= 1^Tb \\
 -y +1^Ta - (1^TAx + 1^Ta) &= -1^T b\\
 -y - 1^TAx &= -1^T b
-\end{align*}$$
+\end{align*}
+$$
 
 **TODO**: 用 Tableaux 講
 

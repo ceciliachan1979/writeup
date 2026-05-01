@@ -25,24 +25,28 @@ print("The average is %s" % (c/25.0))
 
 設 $\hat{a}$ 和 $\hat{b}$ 為 loop body 後 $a$ 和 $b$ 的值，唔難睇到
 
-$$\begin{align*}
+$$
+\begin{align*}
 \hat{a} &= 2a + b \pmod{5} \\
 \hat{b} &= 2a + 2b \pmod{5}
-\end{align*}$$
+\end{align*}
+$$
 
 要理解點解呢兩條式可以 loop 晒 `00` -> `44`，就要由 Galois field 講起。
 
 我哋諗 `(a,b)` 其實係 $ax + b$ 呢條 polynomial，然後我哋考慮 $(ax + b)(x + 2) \pmod{x^2 - 2}$
 
-$$\begin{align*}
+$$
+\begin{align*}
    & (ax+b)(x + 2) - a(x^2 - 2)\\
   =& ax^2 + (2a + b)x + 2b - a(x^2 - 2) \\
   =& (2a + b)x + 2a + 2b
-\end{align*}$$
+\end{align*}
+$$
 
-呢個就係 $(a,b) \to (\hat{a}, \hat{b})$ 個設計，我係計緊 $(x+2)$ 嘅 power mod $x^2-2$。
+呢個就係 $(a,b) \to (\hat{a}, \hat{b})$ 個設計，我係計緊 $(x+2)$ 嘅 power mod $x^2-2$ 。
 
-咁點解 $(x+2)$ 嘅 power mod $x^2 - 2$ 可以 loop 晒 `00` 到 `44`呢？呢個就係 Galois field 理論了。$x+2$ 係 GF($5^2$) 嘅 multiplicative group 嘅 generator，所以佢得。
+咁點解 $(x+2)$ 嘅 power mod $x^2 - 2$ 可以 loop 晒 `00` 到 `44`呢？呢個就係 Galois field 理論了。 $x+2$ 係 GF($5^2$) 嘅 multiplicative group 嘅 generator，所以佢得。
 
 呢個 post 主要寫 obfuscation 方法，數學原理就唔寫太多了。
 

@@ -27,7 +27,7 @@ Discrete Fourier Transform 係一個 signal processing 好常用嘅 algorithm。
 
 首先 $\Omega_0$ 好無聊，佢只係一個 $n$ 個 1 嘅 vector。
 
-出於好奇，我哋計下 $\Omega_p$ 同 $\Omega_q$ 嘅 inner product，假設 $p \ne q$ 。
+出於好奇，我哋計下 $\Omega\_p$ 同 $\Omega\_q$ 嘅 inner product，假設 $p \ne q$ 。
 
 $$
 \begin{align*}

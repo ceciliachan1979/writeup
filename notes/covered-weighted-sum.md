@@ -126,7 +126,7 @@ Lazy propagation 常見用法係「range add + range sum / min」，但依家 qu
 ## Query 抽象：多個 nodes merge 成一個 summary
 
 Segment Tree 查詢 interval `[L, R)` 會拆成 $O(\log n)$ 個互不重疊 nodes：
- $S_1, S_2, \dots, S_k$ 。
+ $S\_1, S\_2, \dots, S\_k$ 。
 
 做法：
 

@@ -6,9 +6,9 @@
 
 如果個 q 係 p rotate 一次會點？
 
-如果某個 原 subarray 唔包括 $n$，咁所有 element 都會加 1，subarray sum 唔一樣
+如果某個 原 subarray 唔包括 $n$ ，咁所有 element 都會加 1，subarray sum 唔一樣
 
-如果某個 原 subarray 包括 $n$，咁個 subarrray sum 會減咗 $n - 1$，要加返 $n-1$ 次 1 先得。
+如果某個 原 subarray 包括 $n$ ，咁個 subarrray sum 會減咗 $n - 1$ ，要加返 $n-1$ 次 1 先得。
 
 但咁即係全個 array，全個 array 係一定一樣的，所以 rotate 一次達到咗最少。
 

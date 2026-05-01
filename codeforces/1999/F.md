@@ -6,17 +6,17 @@
 
 題目要求數有幾多個 subsequence such that median 係 1，其實就係數有幾多個 subsequence 1 嘅數目多過 0 嘅數目。
 
-簡單行一轉，就知道條 string 有 $n$ 個 character，有 $p$ 個 $0$，有 $q$ 個 $1$，咁就會有 $C^q_xC^p_{k-x}$ 個 subsequences such that 有 $x$ 個 $1$ 同 $k-x$ 個 $0$。 
+簡單行一轉，就知道條 string 有 $n$ 個 character，有 $p$ 個 $0$ ，有 $q$ 個 $1$ ，咁就會有 $C^q\_xC^p\_{k-x}$ 個 subsequences such that 有 $x$ 個 $1$ 同 $k-x$ 個 $0$ 。 
 
-最後當然係加晒佢，所以我要知道所有可行嘅 $x$。
+最後當然係加晒佢，所以我要知道所有可行嘅 $x$ 。
 
-$x$ 當然係要 $\ge\lceil\frac{k}{2}\rceil$。
+$x$ 當然係要 $\ge\lceil\frac{k}{2}\rceil$ 。
 
-$x$ 當然係要 $\le k$﹐而且 $x \le q$
+$x$ 當然係要 $\le k$ ﹐而且 $x \le q$
 
 但咁係唔夠，因為你未必夠 $0$ 用。
 
-我哋要埋 $k-x \le p$，即係 $x\ge k-p$。
+我哋要埋 $k-x \le p$ ，即係 $x\ge k-p$ 。
 
 搵到個 $x$ 嘅 range 同 formula for $x$ 之後，唯一嘅難題，就係咁複雜嘅 formula，個 $n$ 同埋 $k$ 又有成 200,000 咁大，點計？
 
@@ -24,7 +24,7 @@ $x$ 當然係要 $\le k$﹐而且 $x \le q$
 
 除數可以用 modular inverse 嚟做，要用返之前講過嘅 extended Euclidean algorithm。
 
-如果搵到 $pa + qb = 1$，其實就知道 $qb \equiv 1 \mod p$，所以用 $b$ 同 $p$ 做 extended Euclidean algorithm，就會搵到 $q$
+如果搵到 $pa + qb = 1$ ，其實就知道 $qb \equiv 1 \mod p$ ，所以用 $b$ 同 $p$ 做 extended Euclidean algorithm，就會搵到 $q$
 
 段 code 就係咁。
 

@@ -89,15 +89,15 @@ if __name__ == "__main__":
 
 所以其實 maximize good pair，就係要 minimize 連住嘅兩件。
 
-如果你有 $m$ 件，每件個 size 係 $n_1, n_2, \cdots, n_m$，個 size 就會係 $n_1n_2 + n_2n_3 + \cdots + n_{m-1}n_{m}$
+如果你有 $m$ 件，每件個 size 係 $n\_1, n\_2, \cdots, n\_m$ ，個 size 就會係 $n\_1n\_2 + n\_2n\_3 + \cdots + n\_{m-1}n\_{m}$
 
-個 string 隨便你 reorder，然後 $m$ 係會變化，睇落依然好難 optimize。然後 editorial 題到其實個 optimal 係 $n-1$， $n$ 係條 string 嘅 length。
+個 string 隨便你 reorder，然後 $m$ 係會變化，睇落依然好難 optimize。然後 editorial 題到其實個 optimal 係 $n-1$ ， $n$ 係條 string 嘅 length。
 
 我哋首先證一個 lemma
 
 如果得兩件，佢最少大過或等於 $n-1$
 
-Proof： $n_1 (n - n_2)$ 係一條有 maximum 嘅 parabola，所以所有 possibility 都大過左右兩個端點。
+Proof： $n\_1 (n - n\_2)$ 係一條有 maximum 嘅 parabola，所以所有 possibility 都大過左右兩個端點。
 
 然後 induction：
 
@@ -105,15 +105,15 @@ Proof： $n_1 (n - n_2)$ 係一條有 maximum 嘅 parabola，所以所有 possib
 
 個 sum 都會係
 
-$n_1 n_2 + n_2 n_3 + \cdots n_{k-1}n_{k} + n_{k}n_{k+1}$
+$n\_1 n\_2 + n\_2 n\_3 + \cdots n\_{k-1}n\_{k} + n\_{k}n\_{k+1}$
 
 Induction hypothesis 出
 
-$n_1 n_2 + n_2 n_3 + \cdots n_{k-1}n_{k} \ge n - n_{k+1} - 1$
+$n\_1 n\_2 + n\_2 n\_3 + \cdots n\_{k-1}n\_{k} \ge n - n\_{k+1} - 1$
 
-所以 $n_1 n_2 + n_2 n_3 + \cdots n_{k-1}n_{k} + n_{k}n_{k+1} \ge n - n_{k+1} - 1 + n_k + n_{k-1} - 1 \ge n - 1$ (留意 $n_k \ge 1$)
+所以 $n\_1 n\_2 + n\_2 n\_3 + \cdots n\_{k-1}n\_{k} + n\_{k}n\_{k+1} \ge n - n\_{k+1} - 1 + n\_k + n\_{k-1} - 1 \ge n - 1$ (留意 $n\_k \ge 1$)
 
-所以 $n-1$ 是一個 lower bound，但同時我哋有辦法 reach $n-1$。
+所以 $n-1$ 是一個 lower bound，但同時我哋有辦法 reach $n-1$ 。
 
 我地又用 induction，如果得兩個 distinct characters，我哋儘量 `abab` 直到其中一個多咗就唯有用佢，睇吓會點？
 
@@ -123,9 +123,9 @@ $n_1 n_2 + n_2 n_3 + \cdots n_{k-1}n_{k} \ge n - n_{k+1} - 1$
  1114
 ababaaaa
 ```
-用圖睇就唔難睇得出點解 `abab` 咁做可以達到 lower bound $n-1$。
+用圖睇就唔難睇得出點解 `abab` 咁做可以達到 lower bound $n-1$ 。
 
-如果我地有 $k$ 個 distinct characters 嘅時候可以做到 $n-1$，考慮 $k+1$ 個 characters
+如果我地有 $k$ 個 distinct characters 嘅時候可以做到 $n-1$ ，考慮 $k+1$ 個 characters
 
 呢 $k+1$ 個 characters 裡面其實依然可以 `abcdabcd` 咁去做，直到其中一個(或多個同時) character 用晒為止，之後就 inductively 咁做。
 
@@ -142,6 +142,6 @@ abcdabcd|inductively
 個 `?` 會係要諗嘅位，個 term 會係 `?` (即係 inductively 第一件個長度再乘以 1，即係 `?` 個長度)
 所以睇圖，依然係 `n-1`。
 
-所以用呢個方法可以 reach 到 $n-1$，而 $n-1$ 又係 lower bound，即係 optimal。
+所以用呢個方法可以 reach 到 $n-1$ ，而 $n-1$ 又係 lower bound，即係 optimal。
 
 我個 algorithm 其實係好彩，當我撞到 frequency 一樣嘅話，個 code 一樣會 output `abcabc` 咁，所以 work。

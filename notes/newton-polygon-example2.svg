@@ -1,0 +1,56 @@
+<svg viewBox="0 0 420 320" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="420" height="320" fill="white"/>
+  <!-- grid -->
+  <line x1="60" y1="32" x2="60" y2="280" stroke="#e5e5e5" stroke-width="1"/>
+  <line x1="150" y1="32" x2="150" y2="280" stroke="#e5e5e5" stroke-width="1"/>
+  <line x1="240" y1="32" x2="240" y2="280" stroke="#e5e5e5" stroke-width="1"/>
+  <line x1="330" y1="32" x2="330" y2="280" stroke="#e5e5e5" stroke-width="1"/>
+  <line x1="60" y1="55" x2="380" y2="55" stroke="#e5e5e5" stroke-width="1"/>
+  <line x1="60" y1="100" x2="380" y2="100" stroke="#e5e5e5" stroke-width="1"/>
+  <line x1="60" y1="145" x2="380" y2="145" stroke="#e5e5e5" stroke-width="1"/>
+  <line x1="60" y1="190" x2="380" y2="190" stroke="#e5e5e5" stroke-width="1"/>
+  <line x1="60" y1="235" x2="380" y2="235" stroke="#e5e5e5" stroke-width="1"/>
+  <line x1="60" y1="280" x2="380" y2="280" stroke="#e5e5e5" stroke-width="1"/>
+
+  <!-- axes -->
+  <line x1="60" y1="280" x2="395" y2="280" stroke="black" stroke-width="1.5"/>
+  <line x1="60" y1="280" x2="60" y2="15" stroke="black" stroke-width="1.5"/>
+  <text x="400" y="284" font-size="13" font-family="sans-serif">i</text>
+  <text x="30" y="20" font-size="13" font-family="sans-serif">ord</text>
+
+  <!-- i ticks -->
+  <text x="60" y="298" font-size="12" font-family="sans-serif" text-anchor="middle">0</text>
+  <text x="150" y="298" font-size="12" font-family="sans-serif" text-anchor="middle">1</text>
+  <text x="240" y="298" font-size="12" font-family="sans-serif" text-anchor="middle">2</text>
+  <text x="330" y="298" font-size="12" font-family="sans-serif" text-anchor="middle">3</text>
+
+  <!-- ord ticks -->
+  <text x="44" y="284" font-size="12" font-family="sans-serif" text-anchor="middle">0</text>
+  <text x="44" y="239" font-size="12" font-family="sans-serif" text-anchor="middle">1</text>
+  <text x="44" y="194" font-size="12" font-family="sans-serif" text-anchor="middle">2</text>
+  <text x="44" y="149" font-size="12" font-family="sans-serif" text-anchor="middle">3</text>
+  <text x="44" y="104" font-size="12" font-family="sans-serif" text-anchor="middle">4</text>
+  <text x="44" y="59" font-size="12" font-family="sans-serif" text-anchor="middle">5</text>
+
+  <!-- naive chord (0,5)-(3,0), shown to demonstrate (1,2) is a real vertex -->
+  <line x1="60" y1="55" x2="330" y2="280" stroke="#9ca3af" stroke-width="1.5" stroke-dasharray="3,4"/>
+  <text x="205" y="150" font-size="12" font-family="sans-serif" fill="#6b7280">naive single chord (wrong &#8212; passes above (1,2))</text>
+
+  <!-- the two real hull edges -->
+  <line x1="60" y1="55" x2="150" y2="190" stroke="#dc2626" stroke-width="2.5"/>
+  <line x1="150" y1="190" x2="330" y2="280" stroke="#2563eb" stroke-width="2.5"/>
+
+  <!-- points -->
+  <circle cx="60" cy="55" r="5" fill="black"/>
+  <text x="68" y="50" font-size="13" font-family="sans-serif">(0, 5)  &#8592; &#8722;x&#8309;</text>
+  <circle cx="150" cy="190" r="5" fill="black"/>
+  <text x="158" y="185" font-size="13" font-family="sans-serif">(1, 2)  &#8592; &#8722;x&#178;y</text>
+  <circle cx="330" cy="280" r="5" fill="black"/>
+  <text x="270" y="266" font-size="13" font-family="sans-serif">(3, 0)  &#8592; y&#179;</text>
+
+  <!-- edge labels -->
+  <text x="65" y="115" font-size="13" font-family="sans-serif" fill="#dc2626" font-weight="bold">Edge A: slope &#8722;3</text>
+  <text x="65" y="131" font-size="13" font-family="sans-serif" fill="#dc2626">h = 3, one root</text>
+  <text x="200" y="220" font-size="13" font-family="sans-serif" fill="#2563eb" font-weight="bold">Edge B: slope &#8722;1</text>
+  <text x="200" y="236" font-size="13" font-family="sans-serif" fill="#2563eb">h = 1, two roots</text>
+</svg>

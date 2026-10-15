@@ -1,5 +1,7 @@
 # Median of Medians
 
+> 呢篇由 Claude 寫，作為我叫佢教我嘅實驗，唔係我自己嘅文字。
+
 這篇寫 deterministic linear-time selection algorithm，通常叫做 **median of medians**。重點是把 rounding、constant、base case threshold 這些煩人的 bookkeeping 講清楚。
 
 ## Algorithm

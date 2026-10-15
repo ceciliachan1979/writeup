@@ -1,5 +1,7 @@
 # 用 Segment Tree 解「covered weighted sum」問題調查總結（廣東話）
 
+> 呢篇由 Claude 寫，作為我叫佢教我嘅實驗，唔係我自己嘅文字。
+
 ## 問題描述
 
 有一條長度為 `n` 嘅 array，每個 position `i` 有一個固定嘅非負 weight `w[i]`。過程中會動態做以下 operations：

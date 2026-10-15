@@ -1,0 +1,41 @@
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="400" height="300" fill="white"/>
+  <!-- grid -->
+  <line x1="60" y1="50" x2="60" y2="260" stroke="#e5e5e5" stroke-width="1"/>
+  <line x1="180" y1="50" x2="180" y2="260" stroke="#e5e5e5" stroke-width="1"/>
+  <line x1="300" y1="50" x2="300" y2="260" stroke="#e5e5e5" stroke-width="1"/>
+  <line x1="60" y1="50" x2="340" y2="50" stroke="#e5e5e5" stroke-width="1"/>
+  <line x1="60" y1="120" x2="340" y2="120" stroke="#e5e5e5" stroke-width="1"/>
+  <line x1="60" y1="190" x2="340" y2="190" stroke="#e5e5e5" stroke-width="1"/>
+  <line x1="60" y1="260" x2="340" y2="260" stroke="#e5e5e5" stroke-width="1"/>
+
+  <!-- axes -->
+  <line x1="60" y1="260" x2="360" y2="260" stroke="black" stroke-width="1.5"/>
+  <line x1="60" y1="260" x2="60" y2="20" stroke="black" stroke-width="1.5"/>
+  <text x="365" y="264" font-size="13" font-family="sans-serif">i</text>
+  <text x="30" y="24" font-size="13" font-family="sans-serif">ord</text>
+
+  <!-- i ticks -->
+  <text x="56" y="278" font-size="12" font-family="sans-serif" text-anchor="middle">0</text>
+  <text x="180" y="278" font-size="12" font-family="sans-serif" text-anchor="middle">1</text>
+  <text x="300" y="278" font-size="12" font-family="sans-serif" text-anchor="middle">2</text>
+
+  <!-- ord ticks -->
+  <text x="44" y="264" font-size="12" font-family="sans-serif" text-anchor="middle">0</text>
+  <text x="44" y="194" font-size="12" font-family="sans-serif" text-anchor="middle">1</text>
+  <text x="44" y="124" font-size="12" font-family="sans-serif" text-anchor="middle">2</text>
+  <text x="44" y="54" font-size="12" font-family="sans-serif" text-anchor="middle">3</text>
+
+  <!-- the hull edge -->
+  <line x1="60" y1="50" x2="300" y2="260" stroke="#2563eb" stroke-width="2.5" stroke-dasharray="6,4"/>
+
+  <!-- points -->
+  <circle cx="60" cy="50" r="5" fill="black"/>
+  <text x="70" y="46" font-size="13" font-family="sans-serif">(0, 3)  &#8592; from &#8722;x&#179;</text>
+  <circle cx="300" cy="260" r="5" fill="black"/>
+  <text x="220" y="245" font-size="13" font-family="sans-serif">(2, 0)  &#8592; from y&#178;</text>
+
+  <!-- slope label -->
+  <text x="130" y="150" font-size="13" font-family="sans-serif" fill="#2563eb" font-weight="bold">slope = &#8722;3/2</text>
+  <text x="130" y="168" font-size="13" font-family="sans-serif" fill="#2563eb">so h = 3/2</text>
+</svg>

@@ -57,18 +57,18 @@ If you also allow finitely many *negative* powers, $a(x) = a_{-3} x^{-3} + a_{-2
 For any nonzero Laurent series $a(x)$ , define its **order**
 
 $$
-\operatorname{ord}(a) = \text{the smallest exponent of } x \text{ appearing with a nonzero coefficient.}
+\text{ord}(a) = \text{the smallest exponent of } x \text{ appearing with a nonzero coefficient.}
 $$
 
-So $\operatorname{ord}(3x^2 + x^5) = 2$ , and $\operatorname{ord}(x^{-1} + 7) = -1$ . Order behaves like a "valuation": $\operatorname{ord}(ab) = \operatorname{ord}(a) + \operatorname{ord}(b)$ and $\operatorname{ord}(a+b) \ge \min(\operatorname{ord}(a), \operatorname{ord}(b))$ . Keep this function in your head. The whole Newton polygon construction is just a clever way of tracking orders.
+So $\text{ord}(3x^2 + x^5) = 2$ , and $\text{ord}(x^{-1} + 7) = -1$ . Order behaves like a "valuation": $\text{ord}(ab) = \text{ord}(a) + \text{ord}(b)$ and $\text{ord}(a+b) \ge \min(\text{ord}(a), \text{ord}(b))$ . Keep this function in your head. The whole Newton polygon construction is just a clever way of tracking orders.
 
-$\mathbb{C}((x))$ is already a very good field, but it is **not algebraically closed**: the equation $y^2 = x$ still has no solution in it. Now that $\operatorname{ord}$ is on hand, the obstruction from Section 0 restates cleanly and generally: if $f(x)^2 = x$ for some nonzero $f \in \mathbb{C}((x))$ , multiplicativity gives $\operatorname{ord}(f^2) = 2\operatorname{ord}(f)$ , always an *even* integer, but $\operatorname{ord}(x) = 1$ is odd. Contradiction. This is the real reason, not a coincidence about Taylor coefficients: solving $y^2 = x$ needs a value group where $1$ has a "half," and $\mathbb{Z}$ simply doesn't have one.
+$\mathbb{C}((x))$ is already a very good field, but it is **not algebraically closed**: the equation $y^2 = x$ still has no solution in it. Now that $\text{ord}$ is on hand, the obstruction from Section 0 restates cleanly and generally: if $f(x)^2 = x$ for some nonzero $f \in \mathbb{C}((x))$ , multiplicativity gives $\text{ord}(f^2) = 2\text{ord}(f)$ , always an *even* integer, but $\text{ord}(x) = 1$ is odd. Contradiction. This is the real reason, not a coincidence about Taylor coefficients: solving $y^2 = x$ needs a value group where $1$ has a "half," and $\mathbb{Z}$ simply doesn't have one.
 
 ---
 
 > 🛑 **Pause and check yourself.**
-> 1. If $\operatorname{ord}(a) = 3$ and $\operatorname{ord}(b) = 3$ , what can you say about $\operatorname{ord}(a+b)$ ? Is it forced to equal $3$ , or could it be something else, and if so, under what condition?
-> 2. State, in one sentence and using $\operatorname{ord}$ , exactly why $\mathbb{C}((x))$ fails to contain a square root of $x$ .
+> 1. If $\text{ord}(a) = 3$ and $\text{ord}(b) = 3$ , what can you say about $\text{ord}(a+b)$ ? Is it forced to equal $3$ , or could it be something else, and if so, under what condition?
+> 2. State, in one sentence and using $\text{ord}$ , exactly why $\mathbb{C}((x))$ fails to contain a square root of $x$ .
 
 ---
 
@@ -91,7 +91,7 @@ $$
 This is the field of **Puiseux series**. An element of $\mathbb{C}\{\{x\}\}$ is a series with rational exponents, all sharing a *common denominator* $n$ (different elements may use different $n$ ), and with only finitely many negative exponents. Two useful facts, both easy to believe and not hard to prove:
 
 - $\mathbb{C}\{\{x\}\}$ is a field (same long-division argument as before, done in the variable $t = x^{1/n}$ once you've cleared denominators).
-- The order function extends naturally: $\operatorname{ord}(a)$ is now a *rational* number (or $+\infty$ for $a = 0$ ), and it still satisfies $\operatorname{ord}(ab) = \operatorname{ord}(a) + \operatorname{ord}(b)$ , $\operatorname{ord}(a+b) \ge \min(\operatorname{ord}(a), \operatorname{ord}(b))$ .
+- The order function extends naturally: $\text{ord}(a)$ is now a *rational* number (or $+\infty$ for $a = 0$ ), and it still satisfies $\text{ord}(ab) = \text{ord}(a) + \text{ord}(b)$ , $\text{ord}(a+b) \ge \min(\text{ord}(a), \text{ord}(b))$ .
 
 ### Puiseux's theorem
 
@@ -130,10 +130,10 @@ where $\gamma$ is just a **single complex number**, the *coefficient* of the lea
 Plug $y = \gamma x^h + \cdots$ into $F$ and look at what each monomial contributes. To leading order, the term $c_i(x) y^i$ behaves like a nonzero coefficient times $x$ raised to the power
 
 $$
-w_i(h) := \operatorname{ord}(c_i) + i h.
+w_i(h) := \text{ord}(c_i) + i h.
 $$
 
-( $\operatorname{ord}(c_i)$ is fixed by the polynomial; $ih$ is the extra order that comes from raising our as-yet-unknown $y$ to the $i$ -th power.) So for any trial value of $h$ , $F(x, y(x))$ is a sum of terms, one per surviving $i$ , of orders $w_0(h), w_1(h), w_2(h), \dots$
+( $\text{ord}(c_i)$ is fixed by the polynomial; $ih$ is the extra order that comes from raising our as-yet-unknown $y$ to the $i$ -th power.) So for any trial value of $h$ , $F(x, y(x))$ is a sum of terms, one per surviving $i$ , of orders $w_0(h), w_1(h), w_2(h), \dots$
 
 Here's the question that actually matters: **for $y(x)$ to be a root, $F(x,y(x))$ has to vanish, so what does that force about these orders?**
 
@@ -143,11 +143,11 @@ Suppose, for some trial $h$ , exactly one $i$ achieves the smallest value of $w_
 
 > 🛑 **Pause and check yourself.**
 > 1. Restate the boxed conclusion above without using the word "tie". What, concretely, has to happen among the terms of $F(x,y(x))$ for $y(x)$ to stand a chance of being a root?
-> 2. **Try predicting before reading on:** sketch a handful of points $(i, \operatorname{ord}(c_i))$ on paper. Just from the picture, with no algebra, which points do you think could *never* be involved in a tie, no matter what $h$ is? (§3.2 answers this properly; a hunch is enough for now.)
+> 2. **Try predicting before reading on:** sketch a handful of points $(i, \text{ord}(c_i))$ on paper. Just from the picture, with no algebra, which points do you think could *never* be involved in a tie, no matter what $h$ is? (§3.2 answers this properly; a hunch is enough for now.)
 
 ### 3.2 Finding the ties: slide a ruler and watch
 
-Rephrase the question geometrically. Plot one point $(i, \operatorname{ord}(c_i))$ per surviving $i$ : horizontal axis the power of $y$ , vertical axis the order in $x$ . For a trial $h$ , the quantity $w_i(h) = \operatorname{ord}(c_i) + ih$ is exactly the height at which a **ruler of slope $-h$** , slid straight up from below the whole point set, first bumps into point $i$ . Check the algebra: a line of slope $-h$ at height $c$ above position $i=0$ is $j = c - hi$ ; staying below every point means $c \le \operatorname{ord}(c_i) + hi$ for all $i$ , so the highest legal $c$ is exactly $\min_i w_i(h)$ , achieved at whichever point(s) the ruler touches first. So "which $i$ minimizes $w_i(h)$ " and "which point does a ruler of tilt $-h$ touch" are the same question, just asked two ways.
+Rephrase the question geometrically. Plot one point $(i, \text{ord}(c_i))$ per surviving $i$ : horizontal axis the power of $y$ , vertical axis the order in $x$ . For a trial $h$ , the quantity $w_i(h) = \text{ord}(c_i) + ih$ is exactly the height at which a **ruler of slope $-h$** , slid straight up from below the whole point set, first bumps into point $i$ . Check the algebra: a line of slope $-h$ at height $c$ above position $i=0$ is $j = c - hi$ ; staying below every point means $c \le \text{ord}(c_i) + hi$ for all $i$ , so the highest legal $c$ is exactly $\min_i w_i(h)$ , achieved at whichever point(s) the ruler touches first. So "which $i$ minimizes $w_i(h)$ " and "which point does a ruler of tilt $-h$ touch" are the same question, just asked two ways.
 
 Our criterion from §3.1 becomes: **we need a tilt at which the ruler touches two or more points simultaneously.** Let's find out when that happens, on a concrete point set first, before worrying about our actual $F$ :
 
@@ -171,7 +171,7 @@ Notice what just happened: the ties occurred at exactly two tilts, $h=3$ and $h=
 
 So our search for candidate $h$ 's has collapsed to a finite, mechanical recipe, one we didn't assume but derived:
 
-1. Plot $(i, \operatorname{ord}(c_i))$ for every surviving $i$ .
+1. Plot $(i, \text{ord}(c_i))$ for every surviving $i$ .
 2. Compute the **lower convex hull**.
 3. Every edge, running from $(i_1,j_1)$ to $(i_2,j_2)$ with slope $-h$ , is a candidate: $h = (j_1-j_2)/(i_2-i_1)$ . That edge accounts for $i_2 - i_1$ roots (with multiplicity); the "Root counting" subsection after the $\gamma$ computation below derives exactly why. Writing $h = p/e$ in lowest terms, the first term of every root on this edge lies in $\mathbb{C}((x^{1/e}))$ . That $e$ is only an *upper bound* on how much ramification is needed, though; the actual denominator a given branch requires can be any divisor of $e$ , and pinning down the real answer takes the refinement pass in Section 6.
 
@@ -184,18 +184,18 @@ One loose end. §3.1's argument that a lone minimal term "can't cancel" was intu
 The precise tool is the **ultrametric (non-archimedean) inequality**:
 
 $$
-\operatorname{ord}(a + b) \ge \min(\operatorname{ord}(a), \operatorname{ord}(b)), \quad \text{with equality unless the leading coefficients of } a \text{ and } b \text{ cancel.}
+\text{ord}(a + b) \ge \min(\text{ord}(a), \text{ord}(b)), \quad \text{with equality unless the leading coefficients of } a \text{ and } b \text{ cancel.}
 $$
 
 (This is the same phenomenon behind $p$ -adic absolute values. It's what makes "order" behave so rigidly, unlike ordinary real-number addition.) Applying it term by term to $F(x,y(x)) = \sum_i c_i(x)(\gamma x^h + \cdots)^i$ gives
 
 $$
-\operatorname{ord}\big( F(x, y(x)) \big) \ge \min_i w_i(h),
+\text{ord}\big( F(x, y(x)) \big) \ge \min_i w_i(h),
 $$
 
 with equality unless the terms achieving the minimum actually cancel. Now the two cases from §3.1 become airtight:
 
-- **$h$ off the hull** (unique minimizer): equality is forced, because nothing else is around to cancel against, so $\operatorname{ord}(F(x,y(x))) = w_i(h)$ , a finite number, meaning $F(x,y(x)) \ne 0$ . Not a root, full stop. Every such $h$ is ruled out, rigorously.
+- **$h$ off the hull** (unique minimizer): equality is forced, because nothing else is around to cancel against, so $\text{ord}(F(x,y(x))) = w_i(h)$ , a finite number, meaning $F(x,y(x)) \ne 0$ . Not a root, full stop. Every such $h$ is ruled out, rigorously.
 - **$h$ on the hull** (an edge's slope): two or more terms tie, so the inequality no longer forces equality, and cancellation becomes *possible*. Whether it actually happens is a genuine algebraic question, tackled in the next section.
 
 That's why we can stop: the ultrametric inequality guarantees that **every** $h$ outside the finitely many hull-edge slopes fails, with no further checking required, and it's *only* at those edges that anything remains to be verified. An infinite search over $h \in \mathbb{Q}$ has become a finite list of edges, each with one algebraic equation left to solve.
@@ -212,7 +212,7 @@ It's tempting to guess $m = 0$ . After all, we're hunting for a root, a place wh
 
 ### 3.6 Two bookkeeping subtleties
 
-- **If several monomials share the same power of $y$ .** In general $c_i(x)$ is itself a whole power series, $c_i(x) = a_{i,0} + a_{i,1}x + \cdots$ , not a single monomial. Only its **order**, the *lowest*-order nonzero term, ever affects the leading-exponent search above. Higher-order terms of $c_i(x)$ only matter once you refine the expansion further (Section 6). This is exactly why we only ever plotted one point $(i, \operatorname{ord}(c_i))$ per power of $y$ , no matter how many terms in $x$ that coefficient has.
+- **If several monomials share the same power of $y$ .** In general $c_i(x)$ is itself a whole power series, $c_i(x) = a_{i,0} + a_{i,1}x + \cdots$ , not a single monomial. Only its **order**, the *lowest*-order nonzero term, ever affects the leading-exponent search above. Higher-order terms of $c_i(x)$ only matter once you refine the expansion further (Section 6). This is exactly why we only ever plotted one point $(i, \text{ord}(c_i))$ per power of $y$ , no matter how many terms in $x$ that coefficient has.
 - **Edges are never vertical, and can be horizontal.** Since each $i$ contributes at most one point, the hull always progresses strictly left to right, so vertical edges simply can't occur. A **horizontal** edge (slope $0$ , i.e. $h=0$ ) is perfectly normal, though: it flags a batch of roots that stay finite and nonzero as $x \to 0$ , i.e. $y(x) = \gamma + (\text{higher order})$ with $\gamma \ne 0$ , ordinary Taylor-expandable roots hiding among the fractional-exponent ones.
 
 ### Finding the leading coefficient $\gamma$
@@ -223,7 +223,7 @@ The search above only pinned down $h$ ; $\gamma$ is still unknown. Once you know
 
 One thing got used silently back in the construction (§3.3, step 3) and again in Example 2 below without ever being justified: an edge from $(i_1,j_1)$ to $(i_2,j_2)$ contributes exactly $i_2 - i_1$ roots. Where does that number actually come from? It falls straight out of the edge polynomial just defined.
 
-**Isolating the edge polynomial's degree.** Let $S$ be the set of $i$ with $(i, \operatorname{ord}(c_i))$ lying exactly on the edge (usually just the two endpoints, but collinear lattice points in between are allowed and do occur). Substituting $y = \gamma x^h$ and extracting the coefficient at order $m$ gives
+**Isolating the edge polynomial's degree.** Let $S$ be the set of $i$ with $(i, \text{ord}(c_i))$ lying exactly on the edge (usually just the two endpoints, but collinear lattice points in between are allowed and do occur). Substituting $y = \gamma x^h$ and extracting the coefficient at order $m$ gives
 
 $$
 E(\gamma) = \sum_{i \in S} b_i \gamma^i, \qquad b_i = \text{leading coefficient of } c_i(x),
@@ -359,7 +359,7 @@ $$
 F(x, -x^3+z) = z^3 - 3x^3 z^2 + (3x^6 - x^2)\, z - x^9.
 $$
 
-Now re-run the whole method on *this* polynomial in $z$ . The coefficient of $z$ is the single series $c_1(x) = 3x^6 - x^2$ , not two separate points, whose order is $\operatorname{ord}(c_1) = 2$ (the $-x^2$ term dominates; per §3.6, only the lowest-order part of a coefficient ever matters here). So the points are $(3,0)$ from $z^3$ , $(2,3)$ from $-3x^3z^2$ , $(1,2)$ from $c_1(x)$ , and $(0,9)$ from $-x^9$ . Checking the lower hull, the edge that matters is $(1,2)$ – $(0,9)$ : slope $(2-9)/(1-0) = -7$ , so the next exponent is $7$ . The edge polynomial from the surviving terms $-x^2 z - x^9 \approx 0$ gives $z \approx -x^7$ . So
+Now re-run the whole method on *this* polynomial in $z$ . The coefficient of $z$ is the single series $c_1(x) = 3x^6 - x^2$ , not two separate points, whose order is $\text{ord}(c_1) = 2$ (the $-x^2$ term dominates; per §3.6, only the lowest-order part of a coefficient ever matters here). So the points are $(3,0)$ from $z^3$ , $(2,3)$ from $-3x^3z^2$ , $(1,2)$ from $c_1(x)$ , and $(0,9)$ from $-x^9$ . Checking the lower hull, the edge that matters is $(1,2)$ – $(0,9)$ : slope $(2-9)/(1-0) = -7$ , so the next exponent is $7$ . The edge polynomial from the surviving terms $-x^2 z - x^9 \approx 0$ gives $z \approx -x^7$ . So
 
 $$
 y_1 = -x^3 - x^7 + \cdots,
@@ -378,7 +378,7 @@ one genuine refinement pass, exactly as promised, and nothing stops you from shi
 ## 7. Why this matters (a quick map of where it's used)
 
 - **Algebraic curve singularities.** If $F(x,y) = 0$ defines a plane curve, the Newton polygon at a singular point tells you how many analytic branches pass through it and their tangent directions/multiplicities. This is the starting point for resolving singularities of curves.
-- **Valuation theory / local fields.** The order function $\operatorname{ord}$ is a valuation, and Puiseux series form an **algebraic closure** of $\mathbb{C}((x))$ , the same relationship $\mathbb{C}$ has to $\mathbb{R}$ ( $\mathbb{C}$ is an algebraic closure of $\mathbb{R}$ , not a completion of it). Completion is a separate question from closure, and it splits the two fields apart: $\mathbb{C}((x))$ is already complete under its discrete $x$ -adic valuation, so nothing more is needed there. The Puiseux field $\mathbb{C}\{\{x\}\}$ , however, is *not* complete under its extended, $\mathbb{Q}$ -valued version of that valuation. Its completion is the strictly larger field of Hahn series (rational-exponent series whose support is merely well-ordered, not finitely-many-negative-terms). This valuation-driven perspective is a template that recurs for $p$ -adic fields, function fields, etc.
+- **Valuation theory / local fields.** The order function $\text{ord}$ is a valuation, and Puiseux series form an **algebraic closure** of $\mathbb{C}((x))$ , the same relationship $\mathbb{C}$ has to $\mathbb{R}$ ( $\mathbb{C}$ is an algebraic closure of $\mathbb{R}$ , not a completion of it). Completion is a separate question from closure, and it splits the two fields apart: $\mathbb{C}((x))$ is already complete under its discrete $x$ -adic valuation, so nothing more is needed there. The Puiseux field $\mathbb{C}\{\{x\}\}$ , however, is *not* complete under its extended, $\mathbb{Q}$ -valued version of that valuation. Its completion is the strictly larger field of Hahn series (rational-exponent series whose support is merely well-ordered, not finitely-many-negative-terms). This valuation-driven perspective is a template that recurs for $p$ -adic fields, function fields, etc.
 - **Tropical geometry.** The Newton polygon construction, done for many variables and iterated, is literally the definition of *tropicalization*: replacing a polynomial by the combinatorics of the exponents/orders of its coefficients. Puiseux series are the standard base field for tropical geometry precisely because their valuation captures this so cleanly.
 - **Asymptotics and perturbation theory.** In applied math, "Newton polygon" methods are the systematic version of the ad hoc "try $y \sim x^\alpha$ " trick used to find the leading behavior of solutions to perturbed/degenerate equations.
 
@@ -391,7 +391,7 @@ one genuine refinement pass, exactly as promised, and nothing stops you from shi
 ## 8. A couple of exercises
 
 1. Find the Newton polygon and leading exponents of all roots of $F(x,y) = y^4 - 2x y^2 + x^2 - x^3$ . (Hint: two of the roots will need a second refinement pass to distinguish them, because the leading terms alone coincide.)
-2. Show directly, using only the definition of order, that if $a, b \in \mathbb{C}\{\{x\}\}$ are nonzero then $\operatorname{ord}(ab) = \operatorname{ord}(a) + \operatorname{ord}(b)$ .
+2. Show directly, using only the definition of order, that if $a, b \in \mathbb{C}\{\{x\}\}$ are nonzero then $\text{ord}(ab) = \text{ord}(a) + \text{ord}(b)$ .
 3. Explain, using the Newton polygon, why $F(x,y) = y^2 - x$ (order-2 point at $(2,0)$ , order-1 point at $(0,1)$ ) forces the denominator $e = 2$ , and connect this back to Section 1.
 
 ---

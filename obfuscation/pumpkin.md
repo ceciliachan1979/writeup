@@ -147,12 +147,12 @@ x_1 - x_2 &\equiv 0 \pmod{m_2}
 \end{align*}
 $$
 
-咁好明顯， $x_1 - x_2 \equiv 0 \pmod{\operatorname{lcm}(m_1, m_2)}$ 。
+咁好明顯， $x_1 - x_2 \equiv 0 \pmod{\text{lcm}(m_1, m_2)}$ 。
 
 咁即係話
 
 $$
-x \equiv a + p \cdot \frac{b-a}{d} \cdot m_1 \pmod{\operatorname{lcm}(m_1, m_2)}
+x \equiv a + p \cdot \frac{b-a}{d} \cdot m_1 \pmod{\text{lcm}(m_1, m_2)}
 $$
 
 咁樣就可以將兩條 non-coprime 嘅 modular equation 變成一條，只要仲有 non-coprime pair 就不停咁做嘅話，最後就只能變返晒全部都 coprime，之後就可以用真 CRT 了。

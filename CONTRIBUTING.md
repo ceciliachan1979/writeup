@@ -98,9 +98,31 @@ Fullwidth characters (＝, ＋, etc.) are not valid LaTeX. Use standard ASCII eq
 **Bad:** `$＝$`  
 **Good:** `$=$`
 
+### 7. Use `\text{...}` Instead of `\operatorname{...}`
+
+GitHub's website rejects `\operatorname`, even though MathJax supports it. The browser displays:
+
+```text
+The following macros are not allowed: operatorname
+```
+
+For upright labels such as `ord` and `lcm`, use `\text{...}` instead.
+
+**Bad:**
+```markdown
+$\operatorname{ord}(a)$
+$\operatorname{lcm}(m, n)$
+```
+
+**Good:**
+```markdown
+$\text{ord}(a)$
+$\text{lcm}(m, n)$
+```
+
 ### Validation
 
-Use the GitHub Markdown API to validate rendering:
+Use the GitHub Markdown API to check that expressions are recognized as math:
 
 ```bash
 curl -s -X POST https://api.github.com/markdown \
@@ -109,4 +131,6 @@ curl -s -X POST https://api.github.com/markdown \
   -d '{"text":"$x_1$ and $x_2$","mode":"gfm"}'
 ```
 
-Each correctly rendered expression produces a `<math-renderer>` element. If you see raw `$...$` or `<em>` tags in the output, the math failed to render.
+Each recognized expression produces a `<math-renderer>` element. Raw `$...$` or unexpected `<em>` tags outside these elements indicate a Markdown parsing problem.
+
+The API does not validate the website's macro restrictions or complete browser rendering. For example, it accepts `\operatorname` inside a `<math-renderer>` element, but the website rejects it. Also inspect the rendered Markdown on GitHub and check for error messages; an API-only check is not sufficient.
